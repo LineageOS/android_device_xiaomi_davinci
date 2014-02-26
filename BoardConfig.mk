@@ -40,9 +40,6 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE += androidboot.hardware.revision=V1
 TARGET_KERNEL_CONFIG := vendor/lineage_davinci_defconfig
 
-# Platform
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
