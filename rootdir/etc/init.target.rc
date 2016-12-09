@@ -146,6 +146,9 @@ on boot
     # Create camera directory
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
+    # Load WLAN driver
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
     # USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
