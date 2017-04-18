@@ -6,9 +6,6 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/davinci/davinci-vendor.mk)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -86,6 +83,9 @@ PRODUCT_PACKAGES += \
     WifiOverlayF10C \
     WifiOverlayF10G \
     WifiOverlayF10I
+
+# Get non-open-source specific aspects
+$(call inherit-product, vendor/xiaomi/davinci/davinci-vendor.mk)
 
 # Inherit from sm6150-common
 $(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
