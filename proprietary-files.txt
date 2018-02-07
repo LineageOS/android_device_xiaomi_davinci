@@ -1,0 +1,2 @@
+# Power-off charging daemon
+-sbin/charger:sbin/chargeonlymode;rootfs
