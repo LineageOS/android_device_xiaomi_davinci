@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_kernel_xiaomi_davinci",
+    "target_path": "kernel/xiaomi/davinci"
+  }
+]
