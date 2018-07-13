@@ -112,6 +112,7 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
+    setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
     # Set the default voltage to 5v
@@ -127,6 +128,12 @@ service nv_mac /vendor/bin/nv_mac
     user system
     group system inet net_admin wifi net_raw
     oneshot
+
+on boot && property:persist.vendor.usb.controller.default=*
+    setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
+
+on property:vendor.usb.controller=*
+    setprop sys.usb.controller ${vendor.usb.controller}
 
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
