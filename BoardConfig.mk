@@ -109,7 +109,6 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 
 # Treble
-PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 28
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Inherit from the proprietary version
