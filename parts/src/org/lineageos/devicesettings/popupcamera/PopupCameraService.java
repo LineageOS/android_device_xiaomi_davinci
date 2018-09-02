@@ -32,6 +32,7 @@ import android.os.SystemClock;
 import android.os.UserHandle;
 import android.util.Log;
 import org.lineageos.devicesettings.R;
+import org.lineageos.devicesettings.utils.FileUtils;
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 
 public class PopupCameraService extends Service implements Handler.Callback {
