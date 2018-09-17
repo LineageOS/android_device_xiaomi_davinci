@@ -41,7 +41,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
 TARGET_KERNEL_CONFIG := vendor/davinci_user_defconfig
 
 # Platform
-TARGET_BOARD_PLATFORM := sm6150
+#TARGET_BOARD_PLATFORM := sm6150
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 
 # Audio
@@ -91,7 +91,7 @@ TARGET_USES_MKE2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # QCOM
-BOARD_USES_QCOM_HARDWARE := true
+#BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
