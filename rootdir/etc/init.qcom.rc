@@ -1,2 +1,15 @@
 on init
     mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
+
+service vendor.ss_ramdump_local /vendor/bin/subsystem_ramdump
+    class late_start
+    user system
+    group system
+    disabled
+
+on property:persist.vendor.sys.ssr.enable_ramdumps=1
+    start vendor.ss_ramdump_local
+
+on property:persist.vendor.sys.ssr.enable_ramdumps=0
+    stop vendor.ss_ramdump
+    stop vendor.ss_ramdump_local
