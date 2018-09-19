@@ -1,3 +1,6 @@
+# Audio
+/system/etc/audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
+
 # Custom HALs
 /system/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_davinci    u:object_r:hal_light_davinci_exec:s0
 
