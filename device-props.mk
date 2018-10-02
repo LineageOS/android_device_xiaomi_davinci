@@ -38,6 +38,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     persist.debug.wfd.enable=1
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.video=true
+
 # Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q6150-17263-1
