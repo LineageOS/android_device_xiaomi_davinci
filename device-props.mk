@@ -9,7 +9,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,com.qualcomm.qti.qmmi \
+    vendor.camera.aux.packagelist=org.lineageos.snapcam,com.android.camera,com.miui.cit,com.qualcomm.qti.qmmi \
     camera.disable_zsl_mode=1
 
 # CNE and DPM
