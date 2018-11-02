@@ -38,6 +38,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.eyecare.brightness.level=5 \
     ro.hist.brightness.threshold=7
 
+# Display post-processing
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.display.type=oled \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    ro.vendor.display.sensortype=2
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
