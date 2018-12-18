@@ -251,6 +251,15 @@
       "HoldFd": true
     },
     {
+      "Name": "ForegroundCpuset",
+      "Path": "/dev/cpuset/foreground/cpus",
+      "Values": [
+        "0-5",
+        "0-5,7"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "UfsClkGateEnable",
       "Path": "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable",
       "Values": [
@@ -394,6 +403,12 @@
       "Node": "UfsHibern8Enable",
       "Duration": 200,
       "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "ForegroundCpuset",
+      "Duration": 5000,
+      "Value": "0-5"
     },
     {
       "PowerHint": "LAUNCH",
