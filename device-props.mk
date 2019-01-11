@@ -25,11 +25,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default
 
-# Perf
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
-    vendor.iop.enable_uxe=0
-
 # Wlan
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.wlan.mimo=0 \
