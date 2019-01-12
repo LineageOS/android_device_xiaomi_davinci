@@ -16,7 +16,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display density
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
+    ro.sf.lcd_density=440
 
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
