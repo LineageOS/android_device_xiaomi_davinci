@@ -14,10 +14,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.hw.aac.encoder=false \
     vendor.voice.path.for.pcm.voip=false
 
-# Display density
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=440
-
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.display.type=oled \
