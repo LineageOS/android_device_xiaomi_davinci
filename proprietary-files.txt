@@ -254,6 +254,12 @@ vendor/lib/libpn551_fw.so
 vendor/lib/libpn553_fw.so
 vendor/lib/libpn548ad_fw.so
 
+# Secure element
+vendor/etc/init/vendor.qti.secure_element@1.0-service.rc
+vendor/lib64/android.hardware.secure_element@1.0-impl.so
+vendor/bin/hw/vendor.qti.secure_element@1.0-service
+vendor/lib/android.hardware.secure_element@1.0-impl.so
+
 # Sensors
 vendor/etc/sensors/config/adux1050_0.json
 vendor/etc/sensors/config/ak991x_dri_0.json
