@@ -151,7 +151,6 @@ on property:sys.shutdown.requested=*
 
 on charger
     start mi_thermald
-    start vendor.hvdcp_opti
     setprop sys.usb.configfs 1
     mkdir /mnt/vendor/persist/subsys 0770 root system
     wait /dev/block/platform/soc/1d84000.ufshc/by-name/persist
