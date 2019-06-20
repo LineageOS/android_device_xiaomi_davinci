@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Boot
+BOARD_BOOT_HEADER_VERSION := 1
+
 # Display density
 TARGET_SCREEN_DENSITY := 440
 
