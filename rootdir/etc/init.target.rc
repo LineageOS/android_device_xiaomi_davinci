@@ -40,8 +40,6 @@ on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    start vendor.qseecomd
-    start keymaster-4-0
 
 on early-fs
     start vold
@@ -157,11 +155,6 @@ on charger
     setprop sys.usb.configfs 1
     mkdir /mnt/vendor/persist/subsys 0770 root system
     wait /dev/block/platform/soc/1d84000.ufshc/by-name/persist
-
-service vendor.qseecomd /vendor/bin/qseecomd
-    class core
-    user root
-    group root
 
 service spdaemon /vendor/bin/spdaemon
     class core
