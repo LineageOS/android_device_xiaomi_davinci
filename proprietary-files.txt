@@ -139,7 +139,7 @@ etc/permissions/qti_permissions.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/qcrilhook.jar
-framework/qti-telephony-common.jar
+framework/qti-telephony-common.jar|4c5c554855eae7f8b1fcb0573b5425c87452c8b6
 framework/QtiTelephonyServicelibrary.jar
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so:lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
