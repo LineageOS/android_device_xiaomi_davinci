@@ -47,5 +47,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # Screen density
 TARGET_SCREEN_DENSITY := 440
 
+# Sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
 # Inherit from proprietary files
 include vendor/xiaomi/davinci/BoardConfigVendor.mk
