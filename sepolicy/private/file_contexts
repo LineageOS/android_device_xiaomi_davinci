@@ -18,3 +18,4 @@
 # HALs
 /system/lib64/hw/power\.qcom\.so	u:object_r:vendor_file:s0
 //system/bin/hw/vendor\.lineage\.camera\.motor@1.0-service\.xiaomi_davinci u:object_r:hal_lineage_camera_motor_xiaomi_davinci_exec:s0
+/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_davinci    u:object_r:hal_fod_davinci_exec:s0
