@@ -36,14 +36,17 @@
 
     <!-- Additional power consumption by CPU excluding cluster and core when
          running -->
-    <item name="cpu.active">18.2</item>
+    <item name="cpu.active">8.4</item>
 
     <!-- Additional power consumption by CPU cluster0 itself when running
          excluding cores in it -->
-    <item name="cpu.cluster_power.cluster0">1.30</item>
+    <item name="cpu.cluster_power.cluster0">2</item>
     <!-- Additional power consumption by CPU cluster1 itself when running
          excluding cores in it -->
-    <item name="cpu.cluster_power.cluster1">5.29</item>
+    <item name="cpu.cluster_power.cluster1">2.2</item>
+    <!-- Additional power consumption by CPU cluster2 itself when running
+         excluding cores in it -->
+    <item name="cpu.cluster_power.cluster2">2.6</item>
 
     <array name="cpu.core_speeds.cluster0">
         <value>300000</value>
