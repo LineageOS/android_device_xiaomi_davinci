@@ -9,4 +9,13 @@
         </interface>
         <fqname>@1.0::IAtCmdFwd/AtCmdFwdService</fqname>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.lineage.camera.motor</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICameraMotor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </manifest>
