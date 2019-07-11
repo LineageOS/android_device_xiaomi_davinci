@@ -1,0 +1,2 @@
+on init
+    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
