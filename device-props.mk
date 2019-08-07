@@ -45,6 +45,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sys.fp.fod.location.X_Y=445,1931 \
     persist.vendor.sys.fp.fod.size.width_height=190,190
 
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.nfc_nci=nqx.default
+
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bg_apps_limit=60 \
