@@ -17,10 +17,10 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi K20
 PRODUCT_MANUFACTURER := Xiaomi
 
-BUILD_FINGERPRINT := "Xiaomi/davinci_eea/davinci:9/PKQ1.190302.001/V10.3.12.0.PFJEUXM:user/release-keys"
+BUILD_FINGERPRINT := "Xiaomi/davinci/davinci:9/PKQ1.190302.001/V10.3.11.0.PFJMIXM:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="davinci-user 9 PKQ1.190302.001 V10.3.12.0.PFJEUXM release-keys" \
+    PRIVATE_BUILD_DESC="davinci-user 9 PKQ1.190302.001 V10.3.11.0.PFJMIXM release-keys" \
     PRODUCT_NAME="davinci" \
     TARGET_DEVICE="davinci"
 
