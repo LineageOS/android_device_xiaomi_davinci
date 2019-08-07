@@ -1,31 +1,22 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
-    ro.af.client_heap_size_kbyte=7168
-
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.bluetooth.soc=cherokee
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=org.lineageos.snapcam,com.android.camera,com.miui.cit,com.qualcomm.qti.qmmi \
-    camera.disable_zsl_mode=1
-
-# CNE and DPM
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.cne.feature=1 \
-    persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
-
-# Data modules
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.vendor.data.mode=concurrent \
-    persist.data.profile_update=true \
-    persist.rmnet.data.enable=true \
-    persist.vendor.radio.data_con_rprt=1 \
-    ro.vendor.use_data_netmgrd=true
+    audio.offload.min.duration.secs=20 \
+    persist.vendor.audio.button_jack.profile=volume \
+    persist.vendor.audio.button_jack.switch=0 \
+    ro.config.vc_call_vol_steps=11 \
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    ro.vendor.audio.sdk.ssr=false \
+    ro.vendor.audio.soundfx.usb=true \
+    vendor.audio.adm.buffering.ms=6 \
+    vendor.audio.enable.dp.for.voice=false \
+    vendor.audio.hal.output.suspend.supported=false \
+    vendor.audio.hw.aac.encoder=false \
+    vendor.audio.noisy.broadcast.delay=600 \
+    vendor.audio.offload.multiple.enabled=true \
+    vendor.voice.path.for.pcm.voip=false \
+    vendor.audio.tunnel.encode=false
 
 # Display density
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -36,7 +27,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.displayfeature.histogram.enable=true \
     ro.eyecare.brightness.threshold=11 \
     ro.eyecare.brightness.level=5 \
-    ro.hist.brightness.threshold=7
+    ro.hist.brightness.threshold=7 \
+    persist.vendor.df.extcolor.proc=0 \
+    persist.vendor.max.brightness=0
 
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -44,50 +37,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.ad=1 \
     ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
-    ro.vendor.display.sensortype=2
+    ro.vendor.display.cabl=2
 
-# Graphics
+# Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_hwc_vds=1 \
-    persist.debug.wfd.enable=1
-
-# Media
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.video=true
-
-# Memory optimizations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true
-
-# Netflix custom property
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q6150-17263-1
+    ro.hardware.fp.fod=true \
+    persist.vendor.sys.fp.fod.location.X_Y=445,1931 \
+    persist.vendor.sys.fp.fod.size.width_height=190,190
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.iop.enable_uxe=0 \
-    vendor.iop.enable_prefetch_ofr=0
-
-# RCS and IMS
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.data.iwlan.enable=true
-    persist.rcs.supported=0
-
-# RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.redir_party_num=1 \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=22,22 \
-    telephony.lteOnCdmaDevice=1 \
-    persist.vendor.radio.atfwd.start=true
-
-# SSR
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.enable_ramdumps=0 \
-    persist.sys.ssr.restart_level=ALL_ENABLE
-
-# WFD
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0
+    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
+    vendor.iop.enable_uxe=0

@@ -1,7 +1,0 @@
-type hal_lineage_camera_motor_xiaomi_davinci, domain, coredomain;
-hal_server_domain(hal_lineage_camera_motor_xiaomi_davinci, hal_lineage_camera_motor)
-
-type hal_lineage_camera_motor_xiaomi_davinci_exec, exec_type, file_type;
-init_daemon_domain(hal_lineage_camera_motor_xiaomi_davinci)
-
-allow hal_lineage_camera_motor_xiaomi_davinci camera_motor_device:chr_file rw_file_perms;
