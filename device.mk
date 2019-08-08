@@ -43,13 +43,17 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
+    jcos_nq_client \
     libnqnfc-nci \
     libnqp61-jcop-kit \
+    libp61-jcop-kit \
+    ls_nq_client \
     nfc_nci.nqx.default \
     NQNfcNci \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     Tag \
+    se_nq_extn_client \
     vendor.nxp.hardware.nfc@1.1-service
 
 PRODUCT_COPY_FILES += \
