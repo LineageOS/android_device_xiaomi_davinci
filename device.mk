@@ -39,18 +39,14 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
+    com.gsma.services.nfc \
     com.nxp.nfc.nq \
-    com.nxp.nfc.nq.xml \
     jcos_nq_client \
-    libnqnfc-nci \
-    libnqp61-jcop-kit \
     libp61-jcop-kit \
     ls_nq_client \
     nfc_nci.nqx.default \
     NQNfcNci \
-    nqnfcee_access.xml \
     nqnfcse_access.xml \
     Tag \
     se_nq_extn_client \
@@ -59,7 +55,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
-
-# Secure element
-PRODUCT_PACKAGES += \
-    SecureElement
