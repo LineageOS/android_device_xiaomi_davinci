@@ -60,6 +60,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest_sdmmagpie.xml:$(TARGET_COPY_OUT_VENDOR)/odm/etc/vintf/manifest_365.xml \
     $(LOCAL_PATH)/manifest_sdmmagpie.xml:$(TARGET_COPY_OUT_VENDOR)/odm/etc/vintf/manifest_366.xml
 
+# Init scripts
+PRODUCT_PACKAGES += \
+    init.leds.sh \
+    init.panel_info.sh \
+    init.target.rc
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_davinci

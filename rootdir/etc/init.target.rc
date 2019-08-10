@@ -1,0 +1,371 @@
+# Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+
+on early-init
+    write /proc/sys/kernel/sched_boost 1
+    symlink /data/tombstones /tombstones
+
+on init
+    chown system camera /dev/drv8846_dev
+    chown system camera /dev/akm09970
+    chmod 0660 /dev/drv8846_dev
+    chmod 0660 /dev/akm09970
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    start vendor.qseecomd
+    start keymaster-4-0
+
+on early-fs
+    start vold
+
+on fs
+    mount_all /vendor/etc/fstab.qcom --early
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/subsys 0770 root system
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /dev/logfs 0771 shell shell
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=2000,gid=2000
+    mkdir /mnt/vendor/persist/stability 0755 system system
+    chown system system /dev/tfa_reg
+    chown system system /dev/tfa_rw
+    chown system system /dev/tfa_rpc
+    chown system system /dev/tfa_control
+    chmod 0660 /dev/tfa_reg
+    chmod 0660 /dev/tfa_rw
+    chmod 0660 /dev/tfa_rpc
+    chmod 0660 /dev/tfa_control
+
+on post-fs
+    # set RLIMIT_MEMLOCK to 64MB
+    setrlimit 8 67108864 67108864
+    write /dev/ipa 1
+
+on late-fs
+    wait_for_prop hwservicemanager.ready true
+    exec_start wait_for_keymaster
+    mount_all /vendor/etc/fstab.qcom --late
+
+service sec_nvm /vendor/bin/sec_nvm
+    class core
+    user system
+    group system
+
+on post-fs-data
+    mkdir /data/tombstones 0771 system system
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/wcnss 0771 system system
+    mkdir /tombstones/dsps 0771 system system
+    mkdir /data/vendor/hbtp 0750 system system
+    mkdir /data/vendor/tloc 0700 system drmrpc
+    mkdir /data/vendor/nnhal 0700 system system
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+    chmod 0644 /dev/elliptic0
+    chmod 0644 /dev/elliptic1
+    mkdir /data/vendor/charge_logger 0771 system system
+    mkdir /data/vendor/nfc 0770 nfc nfc
+
+# add charge_logger service for dump charge message
+service charge_logger /vendor/bin/charge_logger
+    class last_start
+    user system
+    group system system wakelock
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start charge_logger
+
+on property:ro.boot.dp=0x0
+    write /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm6150@0:qcom,power-on@800/pshold_reboot 7
+
+# For cpusets initialize for Silver Only first and then Silver + Gold
+# Silver Only configuration cannot work with 0-7
+on boot
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/top-app/boost/cpus 4-7
+    write /dev/cpuset/foreground/cpus 0-6
+    write /dev/cpuset/foreground/boost/cpus 0-6
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-3
+    chown system system /sys/kernel/hbtp/display_pwr
+    chown system system /sys/kernel/qvr_external_sensor/fd
+    chown system system /proc/tp_selftest
+    start rmt_storage
+    start rfs_access
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/audio-app/cpus 1-2
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 0-7
+    write /dev/cpuset/system-background/cpus 0-7
+
+    chown system system /sys/class/thermal/thermal_message/sconfig
+
+    chown system system /sys/class/touch/tp_dev/fod_status
+    chmod 0664 /sys/class/touch/tp_dev/fod_status
+
+    # Create camera directory
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+
+    # USB controller configuration
+    setprop vendor.usb.rndis.func.name "gsi"
+    setprop vendor.usb.rmnet.func.name "gsi"
+    setprop vendor.usb.rmnet.inst.name "rmnet"
+    setprop vendor.usb.dpl.inst.name "dpl"
+    setprop sys.usb.configfs 1
+
+    chown system system /sys/class/leds/green/step_ms
+    chown system system /sys/class/leds/green/pause_lo_count
+    chown system system /sys/class/leds/green/lut_pattern
+    chown system system /sys/class/leds/green/lo_idx
+    chown system system /sys/class/leds/blue/step_ms
+    chown system system /sys/class/leds/blue/pause_lo_count
+    chown system system /sys/class/leds/blue/lut_pattern
+    chown system system /sys/class/leds/blue/lo_idx
+
+service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+    override
+    class hal
+    user system
+    group system
+    onrestart stop vendor.motor
+    disabled
+
+service nv_mac /vendor/bin/nv_mac
+    class main
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
+
+service vendor.pd_mapper /vendor/bin/pd-mapper
+    class core
+    user system
+    group system
+
+#Peripheral manager
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    ioprio rt 4
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+on property:sys.shutdown.requested=*
+    stop vendor.per_proxy
+    stop vendor.ims_rtp_daemon
+
+on charger
+    start vendor.hvdcp_opti
+    setprop vendor.usb.controller a600000.dwc3
+    setprop sys.usb.configfs 1
+    start vendor.power_off_alarm
+    symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
+    mkdir /mnt/vendor/persist
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/subsys 0770 root system
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
+    mkdir /data/vendor/charge_logger 0771 system system
+    start charge_logger
+    start leds-sh
+
+service vendor.qseecomd /vendor/bin/qseecomd
+    class core
+    user root
+    group root
+
+service spdaemon /vendor/bin/spdaemon
+    class core
+    user system
+    group system
+
+service thermal-engine /system/vendor/bin/thermal-engine
+   class main
+   user root
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   socket thermal-send-rule stream 0660 system system
+   group root
+
+service adsprpcd_root /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
+service adsprpcd /vendor/bin/adsprpcd audiopd
+   class main
+   user media
+   group media
+
+service adsprpcd_sensorspd /vendor/bin/adsprpcd sensorspd
+   class core
+   user system
+   group system
+
+service cdsprpcd /vendor/bin/cdsprpcd
+   class main
+   user system
+   group system
+
+service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+    class main
+    user system
+    socket ims_qmid stream 0660 system radio
+    group radio log diag
+
+# imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
+service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet log diag
+    disabled
+
+service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+    class main
+    user system
+    group radio diag inet log wakelock
+
+on property:vendor.ims.QMI_DAEMON_STATUS=1
+    start vendor.imsdatadaemon
+
+on property:vold.decrypt=trigger_restart_framework
+   start vendor.cnss_diag
+
+service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
+   class main
+   user system
+   group system wifi inet sdcard_rw media_rw diag
+   oneshot
+
+service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+   class main
+   user system
+   group radio diag inet log
+
+service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
+   class core
+   user root
+   oneshot
+
+on property:vendor.ims.DATA_DAEMON_STATUS=1
+    restart vendor.ims_rtp_daemon
+
+service ppd /vendor/bin/mm-pp-dpps
+    class late_start
+    user system
+    group system graphics
+    socket pps stream 0660 system system
+    disabled
+
+on property:init.svc.hwcomposer-2-1=stopped
+    stop ppd
+
+on property:init.svc.hwcomposer-2-1=running
+    start ppd
+
+on property:init.svc.hwcomposer-2-1=restarting
+    stop ppd
+
+service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
+   class core
+   user root
+   oneshot
+
+service panel-info-sh /system/vendor/bin/sh /vendor/etc/init.panel_info.sh
+    class core
+    user root
+    oneshot
+
+on property:vendor.audio.cit.spkcal.copy=true
+    copy /data/vendor/cit/tas2557_cal.bin /mnt/vendor/persist/audio/tas2562_cal.bin
+    chmod 666 /mnt/vendor/persist/audio/tas2562_cal.bin
+    copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
+    chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
+
+service audioshell_service /vendor/bin/audioshell_service
+    oneshot
+    disabled
+
+service remosaic_daemon /system/vendor/bin/remosaic_daemon
+   class late_start
+   user camera
+   group camera
+
+service displayfeature /system/bin/displayfeature
+    class late_start
+    user root
+    group root
+
+on property:init.svc.surfaceflinger=stopped
+    stop displayfeature
+
+on property:init.svc.surfaceflinger=running
+    start displayfeature
+
+on property:init.svc.surfaceflinger=restarting
+    stop displayfeature
+
+on post-fs-data
+    chmod 0666 /dev/migt
+    restorecon /dev/migt
+    chmod 0777 /sys/module/migt/parameters/migt_freq
+    restorecon /sys/module/migt/parameters/migt_freq
+    chmod 0777 /sys/module/migt/parameters/migt_ms
+    restorecon /sys/module/migt/parameters/migt_ms
+    chmod 0777 /sys/module/migt/parameters/migt_thresh
+    restorecon /sys/module/migt/parameters/migt_thresh
+
+    # Add torch node for cit
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chown system system /sys/class/leds/led:switch_0/brightness
+    chown system system /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/leds/led:switch_2/brightness
+    chown system system /sys/class/leds/flashlight/brightness
