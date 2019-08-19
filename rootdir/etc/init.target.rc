@@ -196,6 +196,7 @@ on property:sys.shutdown.requested=*
     stop vendor.ims_rtp_daemon
 
 on charger
+    start mi_thermald
     start vendor.hvdcp_opti
     setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
@@ -328,6 +329,12 @@ service remosaic_daemon /system/vendor/bin/remosaic_daemon
    class late_start
    user camera
    group camera
+
+service mi_thermald /system/vendor/bin/mi_thermald
+    class main
+    user root
+    group system
+    seclabel u:r:mi_thermald:s0
 
 service displayfeature /system/bin/displayfeature
     class late_start
