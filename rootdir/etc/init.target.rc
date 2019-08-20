@@ -36,6 +36,8 @@ on init
     chown system camera /dev/akm09970
     chmod 0660 /dev/drv8846_dev
     chmod 0660 /dev/akm09970
+    write /sys/class/leds/green/max_brightness 32
+    write /sys/class/leds/blue/max_brightness 32
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -288,11 +290,6 @@ service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
-
-service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
-   class core
-   user root
-   oneshot
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon

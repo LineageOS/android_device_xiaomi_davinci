@@ -62,7 +62,6 @@ PRODUCT_COPY_FILES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.leds.sh \
     init.panel_info.sh \
     init.target.rc
 
