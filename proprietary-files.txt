@@ -611,6 +611,9 @@ vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 
+# UBWC
+vendor/lib/libstreamparser.so
+
 # Xiaomi
 vendor/lib64/libteeclientjni.so
 vendor/lib64/libmivendor_module_calibration.so
