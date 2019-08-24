@@ -9,9 +9,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/davinci/davinci-vendor.mk)
 
-# Product
-TARGET_PRODUCT_HARDWARE := davinci
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -63,6 +60,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/manifest_sdmmagpie.xml:$(TARGET_COPY_OUT_VENDOR)/odm/etc/vintf/manifest_365.xml \
     $(LOCAL_PATH)/manifest_sdmmagpie.xml:$(TARGET_COPY_OUT_VENDOR)/odm/etc/vintf/manifest_366.xml
+
+# Init scripts
+PRODUCT_PACKAGES += \
+    init.davinci.rc
 
 # NFC
 PRODUCT_PACKAGES += \
