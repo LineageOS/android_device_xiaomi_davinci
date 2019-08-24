@@ -65,10 +65,6 @@ PRODUCT_PACKAGES += \
     init.panel_info.sh \
     init.target.rc
 
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_davinci
-
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \

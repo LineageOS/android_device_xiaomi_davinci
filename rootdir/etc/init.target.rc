@@ -153,15 +153,6 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop sys.usb.configfs 1
 
-    chown system system /sys/class/leds/green/step_ms
-    chown system system /sys/class/leds/green/pause_lo_count
-    chown system system /sys/class/leds/green/lut_pattern
-    chown system system /sys/class/leds/green/lo_idx
-    chown system system /sys/class/leds/blue/step_ms
-    chown system system /sys/class/leds/blue/pause_lo_count
-    chown system system /sys/class/leds/blue/lut_pattern
-    chown system system /sys/class/leds/blue/lo_idx
-
 service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
     override
     class hal
