@@ -11,15 +11,9 @@ DEVICE_PATH := device/xiaomi/davinci
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_RAMDISK_OFFSET := 0x02000000
-TARGET_KERNEL_ARCH := arm64
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-  TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-  TARGET_KERNEL_CLANG_COMPILE := true
-  TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
-  TARGET_KERNEL_CONFIG := vendor/davinci_user_defconfig
-endif
+TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
+TARGET_KERNEL_CONFIG := vendor/davinci_user_defconfig
 
 # Platform
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
