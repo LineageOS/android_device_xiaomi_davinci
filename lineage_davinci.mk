@@ -16,14 +16,4 @@ PRODUCT_DEVICE := davinci
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
-BUILD_FINGERPRINT := "Xiaomi/davinci/davinci:9/PKQ1.190302.001/V10.3.15.0.PFJCNXM:user/release-keys"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="davinci-user 9 PKQ1.190302.001 V10.3.15.0.PFJCNXM release-keys" \
-    PRODUCT_NAME="davinci" \
-    TARGET_DEVICE="davinci"
-
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.product.model
