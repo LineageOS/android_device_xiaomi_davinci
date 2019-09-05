@@ -47,6 +47,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
 
+# Display
+PRODUCT_PACKAGES += \
+    vendor.display.config@1.8 \
+    vendor.display.config@1.8.vendor
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci
