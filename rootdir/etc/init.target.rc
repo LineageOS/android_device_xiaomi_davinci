@@ -95,19 +95,7 @@ on post-fs-data
     mkdir /data/vendor/thermal/config 0771 root system
     chmod 0644 /dev/elliptic0
     chmod 0644 /dev/elliptic1
-    mkdir /data/vendor/charge_logger 0771 system system
     mkdir /data/vendor/nfc 0770 nfc nfc
-
-# add charge_logger service for dump charge message
-service charge_logger /vendor/bin/charge_logger
-    class last_start
-    user system
-    group system system wakelock
-    disabled
-    oneshot
-
-on property:sys.boot_completed=1
-    start charge_logger
 
 on property:ro.boot.dp=0x0
     write /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm6150@0:qcom,power-on@800/pshold_reboot 7
@@ -123,7 +111,6 @@ on boot
     write /dev/cpuset/system-background/cpus 0-3
     chown system system /sys/kernel/hbtp/display_pwr
     chown system system /sys/kernel/qvr_external_sensor/fd
-    chown system system /proc/tp_selftest
     start rmt_storage
     start rfs_access
     write /dev/cpuset/top-app/cpus 0-3
@@ -207,9 +194,6 @@ on charger
     chmod 0771 /mnt/vendor/persist
     mkdir /mnt/vendor/persist/subsys 0770 root system
     wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
-    mkdir /data/vendor/charge_logger 0771 system system
-    start charge_logger
-    start leds-sh
 
 service vendor.qseecomd /vendor/bin/qseecomd
     class core
@@ -275,13 +259,7 @@ on property:vendor.ims.QMI_DAEMON_STATUS=1
 on property:vold.decrypt=trigger_restart_framework
    start vendor.cnss_diag
 
-service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
-   class main
-   user system
-   group system wifi inet sdcard_rw media_rw diag
-   oneshot
-
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
@@ -305,19 +283,12 @@ on property:init.svc.hwcomposer-2-1=running
 on property:init.svc.hwcomposer-2-1=restarting
     stop ppd
 
-service leds-sh /system/vendor/bin/sh /vendor/etc/init.leds.sh
-   class core
-   user root
-   oneshot
-
 service panel-info-sh /system/vendor/bin/sh /vendor/etc/init.panel_info.sh
     class core
     user root
     oneshot
 
 on property:vendor.audio.cit.spkcal.copy=true
-    copy /data/vendor/cit/tas2557_cal.bin /mnt/vendor/persist/audio/tas2562_cal.bin
-    chmod 666 /mnt/vendor/persist/audio/tas2562_cal.bin
     copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
     chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
 
@@ -325,30 +296,16 @@ service audioshell_service /vendor/bin/audioshell_service
     oneshot
     disabled
 
-service remosaic_daemon /system/vendor/bin/remosaic_daemon
+service remosaic_daemon /vendor/bin/remosaic_daemon
    class late_start
    user camera
    group camera
 
-service mi_thermald /system/vendor/bin/mi_thermald
+service mi_thermald /vendor/bin/mi_thermald
     class main
     user root
     group system
     seclabel u:r:mi_thermald:s0
-
-service displayfeature /system/bin/displayfeature
-    class late_start
-    user root
-    group root
-
-on property:init.svc.surfaceflinger=stopped
-    stop displayfeature
-
-on property:init.svc.surfaceflinger=running
-    start displayfeature
-
-on property:init.svc.surfaceflinger=restarting
-    stop displayfeature
 
 on post-fs-data
     chmod 0666 /dev/migt
