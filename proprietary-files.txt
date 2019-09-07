@@ -456,8 +456,6 @@ vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
 vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib64/hw/displayfeature.default.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
-vendor/etc/dsi_ss_fhd_ea8076_f10_cmd_display_mi.xml
-vendor/etc/dsi_ss_fhd_r66456_f10_cmd_display_mi.xml
 vendor/etc/dsi_ss_fhd_ea_f10_cmd_display_mi.xml|f5a304df70429b2b28fd8cdb2e0ee66ad08a278e
 vendor/etc/dsi_ss_fhd_eb_f10_cmd_display_mi.xml|ddad20b81562e5dad7ae71ea74cf330253733866
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
@@ -531,22 +529,8 @@ vendor/lib/libpn553_fw.so
 vendor/lib/libpn557_fw.so
 
 # QDCM
-vendor/bin/qdcmss
-vendor/etc/init/qdcmss.rc
 vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml|4c8c166bba6ef7de86d7ab3c722dc7afc8e18a8d
 vendor/etc/qdcm_calib_data_ss_eb_fhd_cmd_dsi_panel.xml|9592ec2725e2be9b43a13d7ba87ef2a10ba5e249
-vendor/etc/qdcm_calib_data_sw43404_amoled_video_mode_dsi_boe_panel_with_DSC.xml
-vendor/etc/qdcm_calib_data_nt35695b_truly_fhd_video_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_Dual_Sharp_WQHD_cmd_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_samsung_ea8076_fhd_cmd_dsi_panel.xml
-vendor/etc/qdcm_calib_data_hx83112a_video_mode_dsi_truly_panel.xml
-vendor/etc/qdcm_calib_data_td4328_video_mode_dsi_truly_panel.xml
-vendor/etc/qdcm_calib_data_sw43404_amoled_boe_fhd+_panel_with_DSC.xml
-vendor/etc/qdcm_calib_data_Dual_Sharp_wqhd_video_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_ss_r66456_fhd_cmd_dsi_panel.xml
-vendor/etc/qdcm_calib_data_nt35695b_truly_fhd_command_mode_dsi_panel.xml
-vendor/etc/qdcm_calib_data_td4328_cmd_mode_dsi_truly_panel.xml
-vendor/etc/qdcm_calib_data_sw43404_amoled_cmd_mode_dsi_boe_panel_with_DSC.xml
 
 # Sensor
 vendor/etc/sensors/config/adux1050_0.json
@@ -610,13 +594,7 @@ vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 
-# UBWC
-vendor/lib/libstreamparser.so
-
 # Xiaomi
-vendor/lib64/libteeclientjni.so
-vendor/lib64/libmivendor_module_calibration.so
-vendor/lib64/libmivendor_module_hall.so
 vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0_vendor.so
 vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
