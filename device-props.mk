@@ -18,15 +18,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480
 
-# Display features
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.displayfeature.histogram.enable=true \
-    ro.eyecare.brightness.threshold=11 \
-    ro.eyecare.brightness.level=5 \
-    ro.hist.brightness.threshold=7 \
-    persist.vendor.df.extcolor.proc=0 \
-    persist.vendor.max.brightness=0
-
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.display.type=oled \

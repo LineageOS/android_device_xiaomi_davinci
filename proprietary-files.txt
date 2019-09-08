@@ -447,60 +447,6 @@ vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/etc/hdr_config.cfg
 vendor/etc/sdr_config.cfg
 
-# Display feature
-vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
-vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
-vendor/lib64/hw/displayfeature.default.so
-vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
-vendor/etc/dsi_ss_fhd_ea_f10_cmd_display_mi.xml
-vendor/etc/dsi_ss_fhd_eb_f10_cmd_display_mi.xml
-vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
-vendor/lib/hw/displayfeature.default.so
-vendor/lib/vendor.xiaomi.hardware.displayfeature@1.0.so
-
-# Display Hardware
-vendor/bin/hw/vendor.qti.hardware.display.allocator@1.0-service
-vendor/etc/init/vendor.qti.hardware.display.allocator@1.0-service.rc
-vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl-qti-display.so
-vendor/lib64/hw/gralloc.sm6150.so
-vendor/lib64/hw/hwcomposer.sm6150.so
-vendor/lib64/hw/memtrack.sm6150.so
-vendor/lib64/libdisplaydebug.so
-vendor/lib64/libdisplayqos.so
-vendor/lib64/libdpps.so
-vendor/lib64/libdrm.so
-vendor/lib64/libdrmutils.so
-vendor/lib64/libgpu_tonemapper.so
-vendor/lib64/libgralloccore.so
-vendor/lib64/libgrallocutils.so
-vendor/lib64/libqdMetaData.so
-vendor/lib64/libqdutils.so
-vendor/lib64/libqservice.so
-vendor/lib64/libsdm-colormgr-algo.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libsdmutils.so
-vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl-qti-display.so
-vendor/lib/hw/gralloc.sm6150.so
-vendor/lib/hw/hwcomposer.sm6150.so
-vendor/lib/hw/memtrack.sm6150.so
-vendor/lib/libdisplaydebug.so
-vendor/lib/libdisplayqos.so
-vendor/lib/libdpps.so
-vendor/lib/libdrm.so
-vendor/lib/libdrmutils.so
-vendor/lib/libgpu_tonemapper.so
-vendor/lib/libgralloccore.so
-vendor/lib/libgrallocutils.so
-vendor/lib/libqdMetaData.so
-vendor/lib/libqdutils.so
-vendor/lib/libqservice.so
-vendor/lib/libsdm-colormgr-algo.so
-vendor/lib/libsdmcore.so
-vendor/lib/libsdmextension.so
-vendor/lib/libsdmutils.so
-
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service:vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci
 vendor/firmware/goodix_gt9886_limit_f10_first.tporder
@@ -581,9 +527,3 @@ vendor/etc/thermal-nolimits.conf
 vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
-
-# Xiaomi
-vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0_vendor.so
-vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
-vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1_vendor.so
