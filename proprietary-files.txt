@@ -195,7 +195,6 @@ vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
 vendor/lib64/libFaceGrade.so
 vendor/lib64/libHalSuperSensorServer.so
 vendor/lib64/libMegviiFacepp-0.5.2.so
@@ -245,7 +244,6 @@ vendor/lib64/libmegface.so
 vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmibokeh_712.so
-vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmpbase.so
@@ -352,7 +350,6 @@ vendor/lib/camera/fdconfigvideo.bin
 vendor/lib/camera/fdconfigvideolite.bin
 vendor/lib/hw/camera.qcom.so
 vendor/lib/hw/com.qti.chi.override.so
-vendor/lib/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
 vendor/lib/libFaceGrade.so
 vendor/lib/libHalSuperSensorServer.so
 vendor/lib/libMegviiFacepp-0.5.2.so
@@ -398,7 +395,6 @@ vendor/lib/libmegface.so
 vendor/lib/libmialgo_fs.so
 vendor/lib/libmialgo_sd.so
 vendor/lib/libmibokeh_712.so
-vendor/lib/libmivendor_module_motor.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_faceproc2.so
 vendor/lib/libmpbase.so
@@ -456,8 +452,8 @@ vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
 vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib64/hw/displayfeature.default.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
-vendor/etc/dsi_ss_fhd_ea_f10_cmd_display_mi.xml|f5a304df70429b2b28fd8cdb2e0ee66ad08a278e
-vendor/etc/dsi_ss_fhd_eb_f10_cmd_display_mi.xml|ddad20b81562e5dad7ae71ea74cf330253733866
+vendor/etc/dsi_ss_fhd_ea_f10_cmd_display_mi.xml
+vendor/etc/dsi_ss_fhd_eb_f10_cmd_display_mi.xml
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
 vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
 vendor/lib/hw/displayfeature.default.so
@@ -529,8 +525,8 @@ vendor/lib/libpn553_fw.so
 vendor/lib/libpn557_fw.so
 
 # QDCM
-vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml|4c8c166bba6ef7de86d7ab3c722dc7afc8e18a8d
-vendor/etc/qdcm_calib_data_ss_eb_fhd_cmd_dsi_panel.xml|9592ec2725e2be9b43a13d7ba87ef2a10ba5e249
+vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml
+vendor/etc/qdcm_calib_data_ss_eb_fhd_cmd_dsi_panel.xml
 
 # Sensor
 vendor/etc/sensors/config/adux1050_0.json
