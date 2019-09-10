@@ -1,7 +1,5 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1 \
-    audio.deep_buffer.media=true \
     audio.offload.min.duration.secs=20 \
     persist.vendor.audio.button_jack.profile=volume \
     persist.vendor.audio.button_jack.switch=0 \
@@ -38,12 +36,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
     ro.vendor.display.cabl=2
-
-# Fingerprint
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.fp.fod=true \
-    persist.vendor.sys.fp.fod.location.X_Y=445,1931 \
-    persist.vendor.sys.fp.fod.size.width_height=190,190
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
