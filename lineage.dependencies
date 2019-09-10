@@ -1,10 +1,10 @@
 [
   {
-    "repository": "android_kernel_xiaomi_davinci",
-    "target_path": "kernel/xiaomi/davinci"
+    "repository": "android_device_xiaomi_sm6150-common",
+    "target_path": "device/xiaomi/sm6150-common"
   },
   {
-    "repository": "android_packages_resources_devicesettings",
-    "target_path": "packages/resources/devicesettings"
+    "repository": "android_kernel_xiaomi_davinci",
+    "target_path": "kernel/xiaomi/davinci"
   }
 ]
