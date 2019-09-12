@@ -1,20 +1,18 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.min.duration.secs=20 \
     persist.vendor.audio.button_jack.profile=volume \
     persist.vendor.audio.button_jack.switch=0 \
+    persist.vendor.audio.hifi=false \
+    ro.audio.recording.hd=true \
     ro.config.vc_call_vol_steps=11 \
+    ro.vendor.audio.hifi=true \
     ro.vendor.audio.sdk.fluencetype=fluence \
-    ro.vendor.audio.sdk.ssr=false \
+    ro.vendor.audio.soundfx.type=mi \
     ro.vendor.audio.soundfx.usb=true \
+    ro.vendor.audio.us.proximity=false \
     vendor.audio.adm.buffering.ms=6 \
-    vendor.audio.enable.dp.for.voice=false \
-    vendor.audio.hal.output.suspend.supported=false \
     vendor.audio.hw.aac.encoder=false \
-    vendor.audio.noisy.broadcast.delay=600 \
-    vendor.audio.offload.multiple.enabled=true \
-    vendor.voice.path.for.pcm.voip=false \
-    vendor.audio.tunnel.encode=false
+    vendor.voice.path.for.pcm.voip=false
 
 # Display density
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -34,8 +32,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.display.type=oled \
     ro.vendor.display.ad=1 \
     ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
-    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
-    ro.vendor.display.cabl=2
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -45,3 +42,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.sys.fw.bg_apps_limit=60 \
     vendor.iop.enable_uxe=0
+
+# Wlan
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.wlan.mimo=0 \
+    ro.wlan.vendor=qcom
