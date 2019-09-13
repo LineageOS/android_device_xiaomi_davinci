@@ -28,7 +28,6 @@
 #
 
 on early-init
-    write /proc/sys/kernel/sched_boost 1
     symlink /data/tombstones /tombstones
 
 on init
@@ -99,30 +98,11 @@ on post-fs-data
 on property:ro.boot.dp=0x0
     write /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm6150@0:qcom,power-on@800/pshold_reboot 7
 
-# For cpusets initialize for Silver Only first and then Silver + Gold
-# Silver Only configuration cannot work with 0-7
 on boot
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/top-app/boost/cpus 4-7
-    write /dev/cpuset/foreground/cpus 0-6
-    write /dev/cpuset/foreground/boost/cpus 0-6
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
     chown system system /sys/kernel/hbtp/display_pwr
     chown system system /sys/kernel/qvr_external_sensor/fd
     start rmt_storage
     start rfs_access
-    write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/audio-app/cpus 1-2
-    write /dev/cpuset/foreground/cpus 0-3
-    write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 0-3
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-7
-    write /dev/cpuset/system-background/cpus 0-7
 
     chown system system /sys/class/thermal/thermal_message/sconfig
 
@@ -184,13 +164,7 @@ on property:sys.shutdown.requested=*
 on charger
     start mi_thermald
     start vendor.hvdcp_opti
-    setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
-    start vendor.power_off_alarm
-    symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
-    mkdir /mnt/vendor/persist
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
     mkdir /mnt/vendor/persist/subsys 0770 root system
     wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
 
@@ -233,21 +207,21 @@ service cdsprpcd /vendor/bin/cdsprpcd
    user system
    group system
 
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
     group system wifi radio inet log diag
     disabled
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
     class main
     user system
     group radio diag inet log wakelock
