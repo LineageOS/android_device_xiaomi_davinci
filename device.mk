@@ -46,6 +46,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera Motor
 PRODUCT_PACKAGES += \
+    libgui_vendor \
     vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
 
 # Fingerprint
