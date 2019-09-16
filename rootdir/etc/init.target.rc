@@ -256,11 +256,6 @@ on property:init.svc.hwcomposer-2-1=running
 on property:init.svc.hwcomposer-2-1=restarting
     stop ppd
 
-service panel-info-sh /system/vendor/bin/sh /vendor/etc/init.panel_info.sh
-    class core
-    user root
-    oneshot
-
 on property:vendor.audio.cit.spkcal.copy=true
     copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
     chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
