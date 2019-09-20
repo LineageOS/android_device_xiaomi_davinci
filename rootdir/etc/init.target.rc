@@ -122,14 +122,6 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop sys.usb.configfs 1
 
-service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
-    override
-    class hal
-    user system
-    group system
-    onrestart stop vendor.motor
-    disabled
-
 service nv_mac /vendor/bin/nv_mac
     class main
     user system
