@@ -31,22 +31,22 @@ vendor/lib/rfsa/adsp/misound_res.bin
 
 # Audio
 vendor/lib64/hw/audio.primary.sm6150.so
-vendor/lib64/libtinycompress_vendor.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
+vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libaudioparsers.so
+-vendor/lib64/libaudioparsers.so
 vendor/lib64/libaudioroute_ext.so
 vendor/lib64/libqtigef.so
 vendor/lib/hw/audio.primary.sm6150.so
-vendor/lib/libtinycompress_vendor.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
+vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudioparsers.so
+-vendor/lib/libaudioparsers.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
@@ -74,7 +74,11 @@ vendor/firmware/tfa98xx.cnt
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
+vendor/lib/vendor.qti.hardware.btconfigstore@1.0.so
 
 # Camera
 vendor/bin/remosaic_daemon
@@ -97,20 +101,23 @@ vendor/etc/camera/eisoverridesettings.txt
 vendor/etc/camera/eyelineblush.cng
 vendor/etc/camera/female_bg.png
 vendor/etc/camera/female_icon.png
+vendor/etc/camera/fonts.xml
 vendor/etc/camera/golden_rear_dc_cal_wu.bin
+vendor/etc/camera/hdr_ui9_params.config
 vendor/etc/camera/lf_facerank_model.bin
 vendor/etc/camera/libalfpc_tuning.bin
-vendor/etc/camera/libsnpe_dsp_v65_domains_v2_skel.so
 vendor/etc/camera/libsnpe_dsp_v66_domains_v2_skel.so
 vendor/etc/camera/male_bg.png
 vendor/etc/camera/male_icon.png
 vendor/etc/camera/megviifacepp_0_5_2_model
 vendor/etc/camera/model_back.dlc
 vendor/etc/camera/model_front.dlc
+vendor/etc/camera/Roboto-Thin.ttf
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/score_bg.png
 vendor/etc/camera/score_icon.png
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
+vendor/etc/camera/visidon_clearshot_params_algoup.xml
 vendor/etc/camera/watermark_font_2300_3199.dat
 vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
 vendor/lib64/camera/com.qti.sensor.imx586_davinci.so
@@ -142,6 +149,7 @@ vendor/lib64/camera/components/com.altek.node.distortioncorrection.so
 vendor/lib64/camera/components/com.arcsoft.node.bodyslim.so
 vendor/lib64/camera/components/com.arcsoft.node.capturebokeh.so
 vendor/lib64/camera/components/com.arcsoft.node.capturefusion.so
+vendor/lib64/camera/components/com.arcsoft.node.deflicker.so
 vendor/lib64/camera/components/com.arcsoft.node.distortioncorrection.so
 vendor/lib64/camera/components/com.arcsoft.node.hdr.so
 vendor/lib64/camera/components/com.arcsoft.node.hdrchecker.so
@@ -232,6 +240,7 @@ vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_low_light_hdr.so
 vendor/lib64/libarcsoft_portrait_lighting.so
 vendor/lib64/libarcsoft_portrait_lighting_c.so
+vendor/lib64/libarcsoft_preview_deflicker.so
 vendor/lib64/libarcsoft_supernight.so
 vendor/lib64/libbase64.so
 vendor/lib64/libc++_shared.so
@@ -240,7 +249,6 @@ vendor/lib64/libcamera_scene.so
 vendor/lib64/libcamxfdalgov7.so
 vendor/lib64/libcamxfdalgov8.so
 vendor/lib64/libcamxfdengine.so
-vendor/lib64/libcamxlocalhistogramalgo.so
 vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
@@ -250,13 +258,18 @@ vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libdng_sdk.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libmegface.so
+vendor/lib64/libmialgo_basic.so
+vendor/lib64/libmialgoengine.so
 vendor/lib64/libmialgo_fs.so
+vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
+vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmibokeh_712.so
 vendor/lib64/libmmcamera_faceproc.so
 vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
+vendor/lib64/libnpu.so
 vendor/lib64/libremosaic_daemon.so
 vendor/lib64/libremosaiclib.so
 vendor/lib64/libsnpe_dsp_domains_v2.so
@@ -301,21 +314,15 @@ vendor/firmware/goodix_gt9886_limit_f10_second.tporder
 vendor/lib64/hw/fingerprint.goodix_fod.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
-vendor/lib64/vendor.qti.hardware.biometrics.face@1.0.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0_vendor.so
 vendor/lib/hw/fingerprint.goodix_fod.so
 vendor/lib/libgf_hal.so
 vendor/lib/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
-vendor/lib/vendor.qti.hardware.biometrics.face@1.0.so
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 
 # NFC
-vendor/lib/libpn547_fw.so
-vendor/lib/libpn548ad_fw.so
-vendor/lib/libpn551_fw.so
-vendor/lib/libpn553_fw.so
-vendor/lib/libpn557_fw.so
+vendor/lib/libsn100u_fw.so
 
 # QDCM
 vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml
