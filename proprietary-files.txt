@@ -255,7 +255,6 @@ vendor/lib64/libcamxtintlessalgo.so
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcom.qti.chinodeutils.so
-vendor/lib64/libdng_sdk.so
 vendor/lib64/libft2vendor.so
 vendor/lib64/libmegface.so
 vendor/lib64/libmialgo_basic.so

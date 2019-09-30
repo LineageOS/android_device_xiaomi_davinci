@@ -46,6 +46,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera Motor
 PRODUCT_PACKAGES += \
+    libdng_sdk.vendor \
     libgui_vendor \
     vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
 
