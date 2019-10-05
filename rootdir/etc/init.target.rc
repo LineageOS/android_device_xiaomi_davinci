@@ -28,18 +28,22 @@
 #
 
 on early-init
+    mkdir /dsp 0771 media media
+    mkdir /firmware 0771 system system
+    mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
 
 on init
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
     chown system camera /dev/drv8846_dev
     chown system camera /dev/akm09970
     chmod 0660 /dev/drv8846_dev
     chmod 0660 /dev/akm09970
-    write /sys/class/leds/green/max_brightness 32
+
+    write /sys/class/leds/green/max_brightness 32	
     write /sys/class/leds/blue/max_brightness 32
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
 on early-fs
     start vold
@@ -48,13 +52,15 @@ on fs
     mount_all /vendor/etc/fstab.qcom --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
-    restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/subsys 0770 root system
+    restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
-    mkdir /dev/logfs 0771 shell shell
-    mkdir /mnt/vendor/persist/audio 0755 system system
-    mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=2000,gid=2000
     mkdir /mnt/vendor/persist/stability 0755 system system
+    mkdir /dev/logfs 0771 system system
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    # Add for watermark
+    mkdir /mnt/vendor/persist/camera 0777 root root
+    mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=1000,gid=1000
     chown system system /dev/tfa_reg
     chown system system /dev/tfa_rw
     chown system system /dev/tfa_rpc
@@ -63,9 +69,10 @@ on fs
     chmod 0660 /dev/tfa_rw
     chmod 0660 /dev/tfa_rpc
     chmod 0660 /dev/tfa_control
+    chmod 644 /persist/audio/us_manual_cal
 
 on post-fs
-    # set RLIMIT_MEMLOCK to 64MB
+    # Set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     write /dev/ipa 1
 
@@ -74,11 +81,6 @@ on late-fs
     exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
 
-service sec_nvm /vendor/bin/sec_nvm
-    class core
-    user system
-    group system
-
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -86,27 +88,20 @@ on post-fs-data
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /data/vendor/nnhal 0700 system system
+    mkdir /persist/qti_fp 0700 system system
+
+    mkdir /data/vendor/nfc 0770 nfc nfc
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
-    mkdir /data/vendor/nfc 0770 nfc nfc
-
-on property:ro.boot.dp=0x0
-    write /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm6150@0:qcom,power-on@800/pshold_reboot 7
 
 on boot
-    chown system system /sys/kernel/hbtp/display_pwr
-    chown system system /sys/kernel/qvr_external_sensor/fd
     start rmt_storage
     start rfs_access
-
     chown system system /sys/class/thermal/thermal_message/sconfig
 
-    chown system system /sys/class/touch/tp_dev/fod_status
-    chmod 0664 /sys/class/touch/tp_dev/fod_status
-
-    # Create camera directory
-    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+    # Change owner of white led
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/breath
 
     # Load WLAN driver
     chown wifi wifi /sys/module/wlan/parameters/fwpath
@@ -119,8 +114,16 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop sys.usb.configfs 1
 
+    # Set the default voltage to 5v
+    setprop persist.vendor.cp.taper_term_mv 5000
+
+    setprop persist.vendor.qg_cold_temp -150
+    setprop persist.vendor.qg_coff_gain 1
+    setprop persist.vendor.qg_cld_coff_gain 1.5
+
+# nv_mac is added by Xiaomi-Wifi
 service nv_mac /vendor/bin/nv_mac
-    class main
+    class late_start
     user system
     group system inet net_admin wifi net_raw
     oneshot
@@ -130,7 +133,6 @@ service vendor.pd_mapper /vendor/bin/pd-mapper
     user system
     group system
 
-#Peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
@@ -148,18 +150,21 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
-    stop vendor.ims_rtp_daemon
 
 on charger
     start mi_thermald
+    setprop vendor.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
-    mkdir /mnt/vendor/persist/subsys 0770 root system
-    wait /dev/block/platform/soc/1d84000.ufshc/by-name/persist
 
-service spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
+    symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
+    mkdir /mnt/vendor/persist
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/subsys 0770 root system
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
+    mkdir /data/vendor/charge_logger 0771 system system
+    write /sys/class/leds/green/max_brightness 32
+    write /sys/class/leds/blue/max_brightness 32
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
@@ -170,31 +175,28 @@ service thermal-engine /vendor/bin/thermal-engine
    socket thermal-send-rule stream 0660 system system
    group root
 
-# imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
+# imsqmidaemon starts with root and UID will be downgraded to RADIO.
+service vendor.imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user radio
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
 # imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
+service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user radio
     socket ims_datad stream 0660 system radio
     group radio wifi inet log diag
     disabled
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
     class main
     user radio
-    group radio diag inet log wakelock
+    group radio diag inet log
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
-
-on property:vold.decrypt=trigger_restart_framework
-   start vendor.cnss_diag
 
 service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
@@ -203,30 +205,6 @@ service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
-
-service ppd /vendor/bin/mm-pp-dpps
-    class late_start
-    user system
-    group system graphics
-    socket pps stream 0660 system system
-    disabled
-
-on property:init.svc.hwcomposer-2-3=stopped
-    stop ppd
-
-on property:init.svc.hwcomposer-2-3=running
-    start ppd
-
-on property:init.svc.hwcomposer-2-3=restarting
-    stop ppd
-
-on property:vendor.audio.cit.spkcal.copy=true
-    copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
-    chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
-
-service audioshell_service /vendor/bin/audioshell_service
-    oneshot
-    disabled
 
 service remosaic_daemon /vendor/bin/remosaic_daemon
    class late_start
