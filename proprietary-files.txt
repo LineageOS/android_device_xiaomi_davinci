@@ -81,10 +81,6 @@ vendor/bin/remosaic_daemon
 vendor/etc/camera/CFR_para_T.bin
 vendor/etc/camera/CFR_para_UW.bin
 vendor/etc/camera/CFR_para_W.bin
-vendor/etc/camera/LDC_packdata_xiaomi_F11_src1.dat
-vendor/etc/camera/LDC_packdata_xiaomi_F11_src2.dat
-vendor/etc/camera/LDC_table_src1.dat
-vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/MIUI_Time.ttf
 vendor/etc/camera/Miui-Light.ttf
 vendor/etc/camera/almalence_sr_params_tele.config
@@ -99,8 +95,12 @@ vendor/etc/camera/female_icon.png
 vendor/etc/camera/fonts.xml
 vendor/etc/camera/golden_rear_dc_cal_wu.bin
 vendor/etc/camera/hdr_ui9_params.config
+vendor/etc/camera/LDC_FPC_TUNING_DATA.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x01.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
+vendor/etc/camera/LDC_table_src1.dat
+vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/lf_facerank_model.bin
-vendor/etc/camera/libalfpc_tuning.bin
 vendor/etc/camera/male_bg.png
 vendor/etc/camera/male_icon.png
 vendor/etc/camera/megviifacepp_0_5_2_model
@@ -214,6 +214,7 @@ vendor/lib64/libVDClearShot.so
 vendor/lib64/libVDSuperPhotoAPI.so
 vendor/lib64/libXMFD_AgeGender.so
 vendor/lib64/lib_denoiser3.so
+vendor/lib64/libalAILDC.so
 vendor/lib64/libalCFR.so
 vendor/lib64/libalLDC.so
 vendor/lib64/libalhLDC.so
