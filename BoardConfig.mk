@@ -16,7 +16,7 @@ DEVICE_PATH := device/xiaomi/davinci
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_RAMDISK_OFFSET := 0x02000000
 TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
-TARGET_KERNEL_CONFIG := vendor/davinci_user_defconfig
+TARGET_KERNEL_CONFIG := vendor/lineage_davinci_defconfig
 
 # Platform
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
