@@ -12,6 +12,9 @@ TARGET_SCREEN_DENSITY := 440
 
 DEVICE_PATH := device/xiaomi/davinci
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_davinci
 TARGET_RECOVERY_DEVICE_MODULES := libinit_davinci
