@@ -12,8 +12,8 @@
 <ctl name="ADC1 Volume" value="8" />
 <ctl name="ADC2 Volume" value="8" />
 <ctl name="ADC3 Volume" value="8" />
-<ctl name="PRIM_MI2S_RX Channels" value="Two" />
-<ctl name="PRIM_MI2S_TX Channels" value="Two" />
+<ctl name="PRIM_MI2S_RX Channels" value="One" />
+<ctl name="PRIM_MI2S_TX Channels" value="One" />
 <ctl name="PRIM_MI2S_RX SampleRate" value="KHZ_48" />
 
     <path name="deep-buffer-playback speaker-protected">
