@@ -43,6 +43,11 @@
             android:permission="PopupCameraService">
         </service>
 
+        <service
+            android:name=".fod.FodService"
+            android:permission="FodService">
+        </service>
+
         <activity
             android:name=".popupcamera.PopupCameraSettingsActivity"
             android:label="@string/popup_title"
