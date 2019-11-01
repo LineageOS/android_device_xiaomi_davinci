@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import org.lineageos.devicesettings.fod.FodUtils;
 import org.lineageos.devicesettings.popupcamera.PopupCameraUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -32,6 +33,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        FodUtils.startService(context);
         PopupCameraUtils.startService(context);
     }
 }
