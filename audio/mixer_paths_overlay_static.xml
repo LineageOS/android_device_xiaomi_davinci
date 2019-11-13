@@ -12,9 +12,17 @@
 <ctl name="ADC1 Volume" value="8" />
 <ctl name="ADC2 Volume" value="8" />
 <ctl name="ADC3 Volume" value="8" />
-<ctl name="PRIM_MI2S_RX Channels" value="One" />
-<ctl name="PRIM_MI2S_TX Channels" value="One" />
+<ctl name="ADC4 Volume" value="8" />
 <ctl name="PRIM_MI2S_RX SampleRate" value="KHZ_48" />
+<ctl name="PRIM_MI2S_RX Channels" value="Two" />
+<ctl name="PRIM_MI2S_RX Format" value="S24_LE" />
+<ctl name="PRIM_MI2S_TX SampleRate" value="KHZ_48" />
+<ctl name="PRIM_MI2S_TX Channels" value="Two" />
+<ctl name="PRIM_MI2S_TX Format" value="S24_LE" />
+<ctl name="PRIM_MI2S_RX_VI_FB_MUX" value="ZERO" />
+<ctl name="ADC2_MIXER Switch" value="1" />
+<ctl name="ADC2 MUX" value="INP3" />
+
 
     <path name="deep-buffer-playback speaker-protected">
         <path name="deep-buffer-playback speaker" />
@@ -541,7 +549,9 @@
     </path>
 
     <path name="compress-voip-call speaker">
+        <ctl name="VOIP_EXT_EC MUX" value="PRI_MI2S_RX" />
         <ctl name="PRI_MI2S_RX_Voice Mixer Voip" value="1" />
+        <ctl name="Voip_Tx Mixer TX_CDC_DMA_TX_3_Voip" value="1" />
     </path>
 
     <path name="camcorder-dmic">
@@ -631,6 +641,25 @@
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="ADC2 Volume" value="6" />
         <ctl name="ADC1 Volume" value="6" />
+    </path>
+
+    <path name="voice-rec-mic">
+        <path name="handset-mic" />
+    </path>
+
+    <path name="asr-mic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
+        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX0" value="ADC0" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="ADC1_MIXER Switch" value="1" />
+        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX1" value="ADC2" />
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
+        <ctl name="ADC2_MIXER Switch" value="1" />
+        <ctl name="ADC2 MUX" value="INP3" />
+        <ctl name="ADC2 Volume" value="12" />
+        <ctl name="ADC1 Volume" value="12" />
     </path>
 
 </mixer>
