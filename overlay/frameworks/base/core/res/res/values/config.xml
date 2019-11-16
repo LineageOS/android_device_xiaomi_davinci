@@ -39,4 +39,7 @@
 
     <!-- Specifies the maximum burn-in offset vertically. -->
     <integer name="config_burnInProtectionMaxVerticalOffset">40</integer>
+  
+    <!-- Height of the status bar -->
+    <dimen name="status_bar_height_portrait">35.0dip</dimen>
 </resources>
