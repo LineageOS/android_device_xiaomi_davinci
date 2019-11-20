@@ -31,17 +31,17 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <!-- APM Configs -->
         <property name="audio.deep_buffer.media" value="true"/>
         <property name="audio.offload.disable" value="false"/>
-        <property name="audio.offload.min.duration.secs" value="60"/>
+        <property name="audio.offload.min.duration.secs" value="40"/>
         <property name="audio.offload.video" value="true"/>
         <property name="persist.vendor.audio.sva.conc.enabled" value="false"/>
-        <property name="persist.vendor.audio.va_concurrency_enabled" value="false"/>
+        <property name="persist.vendor.audio.va_concurrency_enabled" value="true"/>
         <property name="vendor.audio.av.streaming.offload.enable" value="false"/>
-        <property name="vendor.audio.offload.track.enable" value="true"/>
+        <property name="vendor.audio.offload.track.enable" value="false"/>
         <property name="vendor.audio.offload.multiple.enabled" value="false"/>
         <property name="vendor.audio.rec.playback.conc.disabled" value="false"/>
         <property name="vendor.voice.conc.fallbackpath" value=""/>
         <property name="vendor.voice.dsd.playback.conc.disabled" value="true"/>
-        <property name="vendor.voice.path.for.pcm.voip" value="true"/>
+        <property name="vendor.voice.path.for.pcm.voip" value="false"/>
         <property name="vendor.voice.playback.conc.disabled" value="false"/>
         <property name="vendor.voice.record.conc.disabled" value="false"/>
         <property name="vendor.voice.voip.conc.disabled" value="false"/>
