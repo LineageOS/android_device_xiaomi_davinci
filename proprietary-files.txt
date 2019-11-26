@@ -213,6 +213,20 @@ vendor/lib64/libmivendor_module_hall.so
 vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/mi.motor.daemon.so
 
+# Camera (popup sound effects)
+media/audio/ui/popup_cangmen_down.ogg
+media/audio/ui/popup_cangmen_up.ogg
+media/audio/ui/popup_chilun_down.ogg
+media/audio/ui/popup_chilun_up.ogg
+media/audio/ui/popup_jijia_down.ogg
+media/audio/ui/popup_jijia_up.ogg
+media/audio/ui/popup_mofa_down.ogg
+media/audio/ui/popup_mofa_up.ogg
+media/audio/ui/popup_muqin_down.ogg
+media/audio/ui/popup_muqin_up.ogg
+media/audio/ui/popup_yingyan_down.ogg
+media/audio/ui/popup_yingyan_up.ogg
+
 # Fingerprint
 vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.sm6150.so
 vendor/lib64/libgf_hal.so
