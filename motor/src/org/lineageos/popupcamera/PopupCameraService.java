@@ -44,6 +44,7 @@ public class PopupCameraService extends Service implements Handler.Callback {
     private static final boolean DEBUG = false;
 
     private int[] mSounds;
+    private boolean mMotorBusy = false;
     private long mClosedEvent;
     private long mOpenEvent;
 
@@ -155,25 +156,45 @@ public class PopupCameraService extends Service implements Handler.Callback {
     }
 
     private void updateMotor(String cameraState) {
-        if (mMotor == null)
+        if (mMotor == null) {
             return;
-        try {
-            if (cameraState.equals(Constants.OPEN_CAMERA_STATE)
-                    && mMotor.getMotorStatus() == Constants.MOTOR_STATUS_TAKEBACK) {
-                lightUp();
-                playSoundEffect(Constants.OPEN_CAMERA_STATE);
-                mMotor.popupMotor(1);
-                mSensorManager.registerListener(
-                        mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
-            } else if (cameraState.equals(Constants.CLOSE_CAMERA_STATE)
-                    && mMotor.getMotorStatus() == Constants.MOTOR_STATUS_POPUP) {
-                lightUp();
-                playSoundEffect(Constants.CLOSE_CAMERA_STATE);
-                mMotor.takebackMotor(1);
-                mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
+        }
+        final Runnable r = () -> {
+            mMotorBusy = true;
+            try {
+                if (cameraState.equals(Constants.OPEN_CAMERA_STATE)
+                        && mMotor.getMotorStatus() == Constants.MOTOR_STATUS_TAKEBACK) {
+                    lightUp();
+                    playSoundEffect(Constants.OPEN_CAMERA_STATE);
+                    mMotor.popupMotor(1);
+                    mSensorManager.registerListener(
+                            mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                } else if (cameraState.equals(Constants.CLOSE_CAMERA_STATE)
+                        && mMotor.getMotorStatus() == Constants.MOTOR_STATUS_POPUP) {
+                    lightUp();
+                    playSoundEffect(Constants.CLOSE_CAMERA_STATE);
+                    mMotor.takebackMotor(1);
+                    mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
+                }
+            } catch (RemoteException e) {
+                // Do nothing
             }
-        } catch (RemoteException e) {
-            // Do nothing
+            mHandler.postDelayed(() -> mMotorBusy = false, 1200);
+        };
+
+        if (mMotorBusy) {
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if (mMotorBusy) {
+                        mHandler.postDelayed(this, 100);
+                    } else {
+                        mHandler.post(r);
+                    }
+                }
+            }, 100);
+        } else {
+            mHandler.post(r);
         }
     }
 
