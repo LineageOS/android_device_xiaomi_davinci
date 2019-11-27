@@ -22,6 +22,7 @@
     android:versionName="1.0">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-sdk
         android:minSdkVersion="29"
