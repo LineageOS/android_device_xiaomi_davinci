@@ -31,5 +31,8 @@ TARGET_USES_NQ_NFC := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
 
+# Treble
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/davinci/BoardConfigVendor.mk
