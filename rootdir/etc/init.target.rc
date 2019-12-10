@@ -35,3 +35,8 @@ on init
 
     write /sys/class/leds/green/max_brightness 32	
     write /sys/class/leds/blue/max_brightness 32
+
+service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+    class hal
+    user system
+    group system

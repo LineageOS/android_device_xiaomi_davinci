@@ -53,11 +53,11 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.camera.motor</name>
+        <name>vendor.xiaomi.hardware.motor</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ICameraMotor</name>
+            <name>IMotor</name>
             <instance>default</instance>
         </interface>
     </hal>

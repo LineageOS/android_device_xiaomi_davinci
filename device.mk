@@ -46,11 +46,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
-# Camera Motor
+# Camera
 PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     libgui_vendor \
-    vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
+    vendor.xiaomi.hardware.motor@1.0.vendor
 
 # Fingerprint
 PRODUCT_PACKAGES += \

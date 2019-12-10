@@ -272,6 +272,16 @@ vendor/lib64/libvidhance.so
 # Camera Firmware
 vendor/firmware/CAMERA_ICP.elf
 
+# Camera Motor
+vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+vendor/etc/step_motor/mi_camera_config.xml
+vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/libmivendor_module_motor.so
+vendor/lib64/mi.motor.daemon.so
+vendor/lib/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib/libmivendor_module_motor.so
+vendor/lib/mi.motor.daemon.so
+
 # Display calibration
 vendor/etc/hdr_config.cfg
 vendor/etc/sdr_config.cfg
