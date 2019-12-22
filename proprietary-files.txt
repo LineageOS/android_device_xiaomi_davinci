@@ -276,6 +276,8 @@ vendor/firmware/CAMERA_ICP.elf
 vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
 vendor/etc/step_motor/mi_camera_config.xml
 vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/libmivendor_module_calibration.so
+vendor/lib64/libmivendor_module_hall.so
 vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/mi.motor.daemon.so
 vendor/lib/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
