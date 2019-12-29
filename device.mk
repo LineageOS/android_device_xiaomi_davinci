@@ -27,9 +27,6 @@ PRODUCT_COPY_FILES += \
 # Properties
 -include $(LOCAL_PATH)/device-props.mk
 
-# Inherit from sm6150-common
-$(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_configs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_configs.xml \
@@ -88,3 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/libnfc-nxp_RF.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+# Inherit from sm6150-common
+$(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
