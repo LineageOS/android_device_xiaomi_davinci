@@ -280,9 +280,6 @@ vendor/lib64/libmivendor_module_calibration.so
 vendor/lib64/libmivendor_module_hall.so
 vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/mi.motor.daemon.so
-vendor/lib/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
-vendor/lib/libmivendor_module_motor.so
-vendor/lib/mi.motor.daemon.so
 
 # Display calibration
 vendor/etc/hdr_config.cfg
