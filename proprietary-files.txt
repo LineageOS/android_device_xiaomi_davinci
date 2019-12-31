@@ -287,8 +287,6 @@ vendor/etc/sdr_config.cfg
 
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service:vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci
-vendor/firmware/goodix_gt9886_limit_f10_first.tporder
-vendor/firmware/goodix_gt9886_limit_f10_second.tporder
 vendor/lib64/hw/fingerprint.goodix_fod.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0_vendor.so
@@ -353,3 +351,7 @@ vendor/etc/thermal-nolimits.conf
 vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
+
+# Touchscreen
+vendor/firmware/goodix_gt9886_limit_f10_first.tporder
+vendor/firmware/goodix_gt9886_limit_f10_second.tporder
