@@ -60,48 +60,8 @@ void property_override(char const prop[], char const value[], bool add = true)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void load_davinciglobal()
-{
-    for (const auto &source : ro_props_default_source_order)
-    {
-        set_ro_build_prop(source, "fingerprint",
-                          "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.1.0.QFJMIXM:user/release-keys");
-        set_ro_product_prop(source, "device", "davinci");
-        set_ro_product_prop(source, "model", "Mi 9T");
-    }
-    property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.1.0.QFJMIXM-release-keys");
-    property_override("ro.product.mod_device", "davinci_in_global");
-}
-
-void load_davinciin()
-{
-    for (const auto &source : ro_props_default_source_order)
-    {
-        set_ro_build_prop(source, "fingerprint",
-                          "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.1.0.QFJINXM:user/release-keys");
-        set_ro_product_prop(source, "device", "davinciin");
-        set_ro_product_prop(source, "model", "Redmi K20");
-    }
-    property_override("ro.build.description", "davinciin-user-10-QKQ1.190825.002-V11.0.1.0.QFJINXM-release-keys");
-    property_override("ro.product.mod_device", "davinciin_in_global");
-}
-
-void load_davinci()
-{
-    for (const auto &source : ro_props_default_source_order)
-    {
-        set_ro_build_prop(source, "fingerprint",
-                          "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.2.0.QFJCNXM:user/release-keys");
-        set_ro_product_prop(source, "device", "davinci");
-        set_ro_product_prop(source, "model", "Redmi K20");
-    }
-    property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.2.0.QFJCNXM-release-keys");
-}
-
 void vendor_load_properties()
 {
-    std::string region = android::base::GetProperty("ro.boot.hwc", "");
-
     const auto set_ro_build_prop = [](const std::string &source,
                                       const std::string &prop,
                                       const std::string &value) {
@@ -116,16 +76,40 @@ void vendor_load_properties()
         property_override(prop_name.c_str(), value.c_str(), false);
     };
 
-    if (region.find("CN") != std::string::npos)
+    std::string region;
+    region = GetProperty("ro.boot.hwc", "");
+
+    if (region == "CN")
     {
-        load_davinci();
+        for (const auto &source : ro_props_default_source_order)
+        {
+            set_ro_build_prop(source, "fingerprint",
+                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.2.0.QFJCNXM:user/release-keys");
+            set_ro_product_prop(source, "device", "davinci");
+            set_ro_product_prop(source, "model", "Redmi K20");
+        }
+        property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.2.0.QFJCNXM-release-keys");
     }
-    else if (region.find("INDIA") != std::string::npos)
+    else if (region == "INDIA")
     {
-        load_davinciin();
+        for (const auto &source : ro_props_default_source_order)
+        {
+            set_ro_build_prop(source, "fingerprint",
+                              "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.1.0.QFJINXM:user/release-keys");
+            set_ro_product_prop(source, "device", "davinciin");
+            set_ro_product_prop(source, "model", "Redmi K20");
+        }
+        property_override("ro.build.description", "davinciin-user-10-QKQ1.190825.002-V11.0.1.0.QFJINXM-release-keys");
     }
-    else if (region.find("GLOBAL") != std::string::npos)
+    else if (region == "GLOBAL")
     {
-        load_davinciglobal();
+        for (const auto &source : ro_props_default_source_order)
+        {
+            set_ro_build_prop(source, "fingerprint",
+                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.1.0.QFJMIXM:user/release-keys");
+            set_ro_product_prop(source, "device", "davinci");
+            set_ro_product_prop(source, "model", "Mi 9T");
+        }
+        property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.1.0.QFJMIXM-release-keys");
     }
 }
