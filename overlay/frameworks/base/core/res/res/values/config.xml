@@ -210,4 +210,8 @@
          hysteresis threshold. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
+
+    <!-- True if the display hardware only has brightness buckets rather than a full range of
+         backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
 </resources>
