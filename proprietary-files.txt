@@ -36,8 +36,9 @@ vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
 vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libaudio_log_utils.so
--vendor/lib64/libaudioparsers.so
+vendor/lib64/libaudioparsers.so
 vendor/lib64/libaudioroute_ext.so
+vendor/lib64/libhdmipassthru.so
 vendor/lib64/libqtigef.so
 vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/libadiertac.so
@@ -46,9 +47,10 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudio_log_utils.so
--vendor/lib/libaudioparsers.so
+vendor/lib/libaudioparsers.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libdrc.so
+vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 vendor/lib/libsurround_3mic_proc.so
 
