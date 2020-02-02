@@ -12,6 +12,10 @@ TARGET_SCREEN_DENSITY := 440
 
 DEVICE_PATH := device/xiaomi/davinci
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
@@ -32,9 +36,6 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Partitions
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
-
-# Treble
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/davinci/BoardConfigVendor.mk
