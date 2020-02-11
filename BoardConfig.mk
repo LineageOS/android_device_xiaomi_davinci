@@ -15,6 +15,9 @@ AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 
 BOARD_USES_ALSA_AUDIO := true
 
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+
 # Kernel
 TARGET_KERNEL_CONFIG := davinci_defconfig
 
@@ -48,6 +51,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_SCREEN_DENSITY := 440
 
 # Sepolicy
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Inherit from proprietary files
