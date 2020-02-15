@@ -2587,7 +2587,6 @@
     </path>
 
     <path name="speaker">
-        <ctl name="PRIM_MI2S_RX Channels" value="One" />
     </path>
 
     <path name="speaker-mono">
