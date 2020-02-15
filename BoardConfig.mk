@@ -10,6 +10,7 @@ include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 DEVICE_PATH := device/xiaomi/davinci
 
 # Audio
+AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 

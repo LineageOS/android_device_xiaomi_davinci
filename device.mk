@@ -12,7 +12,8 @@ $(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.sm6150
+    audio.primary.sm6150 \
+    audio_amplifier.sm6150
 
 PRODUCT_PACKAGES += \
     liba2dpoffload \
