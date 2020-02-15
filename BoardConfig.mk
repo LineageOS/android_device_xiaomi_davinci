@@ -22,6 +22,9 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Assert
 TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
+# Audio
+AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
+
 # Fingerprint
 TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension
 TARGET_USES_FOD_ZPOS := true
