@@ -1,8 +1,8 @@
 Copyright (C) 2019-2020 - The LineageOS Project
 
-The Xiaomi Mi 9T/Redmi K20 (codenamed _"davinci/davinciin"_) are high-end mid-range smartphones from Xiaomi.
+The Xiaomi Mi 9T/Redmi K20 (codenamed _"davinci/davinciin"_) are mid range smartphones from Xiaomi.
 
-Xiaomi Mi 9T/Redmi K20 was announced and released in 2019.
+Xiaomi Mi 9T/Redmi K20 were announced and released in June 2019.
 
 ## Device specifications
 
@@ -24,4 +24,4 @@ Xiaomi Mi 9T/Redmi K20 was announced and released in 2019.
 
 ## Device picture
 
-![Xiaomi Mi 9T/Redmi K20](https://raw.githubusercontent.com/LineageOS/lineage_wiki/f9572ad50d95d77f3e4329f62c465130bc812967/images/devices/davinci.png)
+![Xiaomi Mi 9T/Redmi K20](https://xiaomi-mi.com/uploads/CatalogueImage/mi9t%20(1)_17539_1560516684.jpg "Xiaomi Redmi K20 in black")
