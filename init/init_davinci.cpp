@@ -2,6 +2,7 @@
    Copyright (c) 2015, The Linux Foundation. All rights reserved.
    Copyright (C) 2016 The CyanogenMod Project.
    Copyright (C) 2019-2020 The LineageOS Project.
+
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -88,7 +89,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "davinci");
             set_ro_product_prop(source, "model", "Redmi K20");
         }
-        property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.2.0.QFJCNXM-release-keys");
+        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.2.0.QFJCNXM release-keys");
     }
     else if (region == "INDIA")
     {
@@ -99,7 +100,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "davinciin");
             set_ro_product_prop(source, "model", "Redmi K20");
         }
-        property_override("ro.build.description", "davinciin-user-10-QKQ1.190825.002-V11.0.1.0.QFJINXM-release-keys");
+        property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.1.0.QFJINXM release-keys");
     }
     else if (region == "GLOBAL")
     {
@@ -110,6 +111,6 @@ void vendor_load_properties()
             set_ro_product_prop(source, "device", "davinci");
             set_ro_product_prop(source, "model", "Mi 9T");
         }
-        property_override("ro.build.description", "davinci-user-10-QKQ1.190825.002-V11.0.1.0.QFJMIXM-release-keys");
+        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.1.0.QFJMIXM release-keys");
     }
 }
