@@ -429,10 +429,12 @@
 
     <path name="deep-buffer-playback speaker">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+        <ctl name="PRIM_MI2S_RX Channels" value="One" />
     </path>
 
     <path name="low-latency-playback speaker">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia5" value="1" />
+        <ctl name="PRIM_MI2S_RX Channels" value="One" />
     </path>
 
     <path name="low-latency-playback speaker-2">
