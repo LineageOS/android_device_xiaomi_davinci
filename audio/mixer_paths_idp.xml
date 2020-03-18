@@ -820,7 +820,7 @@
     </path>
 
     <path name="deep-buffer-playback">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
     <path name="deep-buffer-playback speaker-protected">
@@ -1008,7 +1008,7 @@
         <path name="low-latency-playback" />
     </path>
     <path name="audio-ull-playback">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia8" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia8" value="1" />
     </path>
 
     <path name="audio-ull-playback handset">
@@ -1101,7 +1101,7 @@
     </path>
 
     <path name="compress-offload-playback">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia4" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="1" />
     </path>
 
     <path name="compress-offload-playback handset">
@@ -1292,7 +1292,7 @@
         <path name="compress-offload-playback2" />
     </path>
     <path name="compress-offload-playback3">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia10" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia10" value="1" />
     </path>
 
     <path name="compress-offload-playback3 handset">
@@ -1382,7 +1382,7 @@
         <path name="compress-offload-playback3" />
     </path>
     <path name="compress-offload-playback4">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia11" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia11" value="1" />
     </path>
 
     <path name="compress-offload-playback4 handset">
@@ -1472,7 +1472,7 @@
         <path name="compress-offload-playback4" />
     </path>
     <path name="compress-offload-playback5">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia12" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia12" value="1" />
     </path>
 
     <path name="compress-offload-playback5 handset">
@@ -1562,7 +1562,7 @@
         <path name="compress-offload-playback5" />
     </path>
     <path name="compress-offload-playback6">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia13" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia13" value="1" />
     </path>
 
     <path name="compress-offload-playback6 handset">
@@ -1652,7 +1652,7 @@
         <path name="compress-offload-playback6" />
     </path>
     <path name="compress-offload-playback7">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia14" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia14" value="1" />
     </path>
 
     <path name="compress-offload-playback7 handset">
@@ -1742,7 +1742,7 @@
         <path name="compress-offload-playback7" />
     </path>
     <path name="compress-offload-playback8">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia15" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia15" value="1" />
     </path>
 
     <path name="compress-offload-playback8 handset">
@@ -1832,7 +1832,7 @@
         <path name="compress-offload-playback8" />
     </path>
     <path name="compress-offload-playback9">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia16" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia16" value="1" />
     </path>
 
     <path name="compress-offload-playback9 handset">
@@ -1986,8 +1986,8 @@
 
     <path name="play-fm">
         <ctl name="SLIMBUS_8 LOOPBACK Volume" value="1" />
-        <ctl name="WSA_CDC_DMA_RX_0 Port Mixer SLIM_8_TX" value="1" />
-        <ctl name="WSA_CDC_DMA_RX_0_DL_HL Switch" value="1" />
+        <ctl name="PRI_MI2S_RX Port Mixer SLIM_8_TX" value="1" />
+        <ctl name="PRI_MI2S_RX_DL_HL Switch" value="1" />
     </path>
 
     <path name="play-fm headphones">
@@ -2519,7 +2519,7 @@
     </path>
 
     <path name="mmap-playback">
-        <ctl name="WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia16" value="1" />
+        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia16" value="1" />
     </path>
 
     <path name="mmap-playback handset">
@@ -3347,7 +3347,7 @@
 
     <!-- Added for ADSP testfwk -->
     <path name="ADSP testfwk">
-        <ctl name="WSA_CDC_DMA_RX_0_DL_HL Switch" value="1" />
+        <ctl name="PRI_MI2S_RX_DL_HL Switch" value="1" />
     </path>
 
 </mixer>
