@@ -483,26 +483,6 @@
         <ctl name="PRI_MI2S_RX_Voice Mixer Voip" value="1" />
     </path>
 
-    <path name="voicemmode1-call speaker">
-        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
-        <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="1" />
-    </path>
-
-    <path name="voicemmode1-call speaker-2">
-        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
-        <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="1" />
-    </path>
-
-    <path name="voicemmode2-call speaker">
-        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
-        <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="1" />
-    </path>
-
-    <path name="voicemmode2-call speaker-2">
-        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
-        <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="1" />
-    </path>
-
     <path name="audio-playback-voip speaker">
         <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia10" value="1" />
     </path>
@@ -2170,7 +2150,7 @@
     </path>
 
     <path name="voicemmode1-call">
-        <ctl name="RX_CDC_DMA_RX_0_Voice Mixer VoiceMMode1" value="1" />
+        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode1" value="1" />
         <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="1" />
     </path>
 
@@ -2220,7 +2200,7 @@
     </path>
 
     <path name="voicemmode2-call">
-        <ctl name="RX_CDC_DMA_RX_0_Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="PRI_MI2S_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="1" />
     </path>
 
@@ -2842,6 +2822,11 @@
     </path>
 
     <path name="speaker">
+        <ctl name="PRIM_MI2S_RX Channels" value="One" />
+    </path>
+
+    <path name="speaker-ring">
+        <ctl name="PRIM_MI2S_RX Channels" value="One" />
     </path>
 
     <path name="speaker-mono">
@@ -2889,7 +2874,7 @@
     </path>
 
     <path name="speaker-mic">
-        <path name="amic1" />
+        <path name="amic3" />
     </path>
 
     <path name="speaker-protected">
@@ -2946,6 +2931,10 @@
 
     <path name="handset-mic">
         <path name="amic1" />
+    </path>
+
+    <path name="secondary-mic">
+        <path name="amic3" />
     </path>
 
     <path name="headphones">
@@ -3198,6 +3187,10 @@
     </path>
 
     <path name="voice-dmic-ef">
+        <path name="dmic-endfire" />
+    </path>
+
+    <path name="camcorder-dmic">
         <path name="dmic-endfire" />
     </path>
 
