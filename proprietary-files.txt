@@ -274,10 +274,8 @@ vendor/etc/hdr_config.cfg
 vendor/etc/sdr_config.cfg
 
 # Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service:vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci
-vendor/lib64/hw/fingerprint.goodix_fod.so
+vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.sm6150.so
 vendor/lib64/libgf_hal.so
-vendor/lib64/vendor.xiaomi.hardware.fingerprintextension@1.0_vendor.so
 
 # NFC
 vendor/lib/libsn100u_fw.so
