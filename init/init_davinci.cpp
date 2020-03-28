@@ -101,6 +101,7 @@ void vendor_load_properties()
             set_ro_product_prop(source, "model", "Redmi K20");
         }
         property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.2.0.QFJINXM release-keys");
+        property_override("ro.product.mod_device", "davinciin_in_global");
     }
     else if (region == "GLOBAL")
     {
@@ -112,5 +113,6 @@ void vendor_load_properties()
             set_ro_product_prop(source, "model", "Mi 9T");
         }
         property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.4.0.QFJMIXM release-keys");
+        property_override("ro.product.mod_device", "davinci_global");
     }
 }
