@@ -67,12 +67,20 @@ PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service.xiaomi_sm6150
 
 # NFC
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/nxp/opensource/sn100x
+
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
-    NfcNci \
-    SecureElement \
+    com.gsma.services.nfc \
+    com.nxp.nfc.nq \
+    libnqnfc_nci_jni \
+    nfc_nci.nqx.default.hw \
+    NQNfcNci \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
     Tag \
-    android.hardware.nfc@1.2-service
+    vendor.nxp.hardware.nfc@1.2-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
