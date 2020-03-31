@@ -296,6 +296,14 @@
       "ResetOnInit": true
     },
     {
+      "Name": "DisplayWakeup",
+      "Path": "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup",
+      "Values": [
+        "1",
+        "0"
+      ]
+    },
+    {
       "Name": "PowerHALMainState",
       "Path": "vendor.powerhal.state",
       "Values": [
@@ -568,6 +576,12 @@
       "Node": "TASchedtuneHighCap",
       "Duration": 0,
       "Value": "0"
+    },
+    {
+      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
+      "Node": "DisplayWakeup",
+      "Duration": 60,
+      "Value": "1"
     }
   ]
 }
