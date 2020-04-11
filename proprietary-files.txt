@@ -277,6 +277,13 @@ vendor/etc/sdr_config.cfg
 vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.sm6150.so
 vendor/lib64/libgf_hal.so
 
+# GPU (Firmware)
+vendor/firmware/a615_zap.mdt
+
+# IPA (Firmware)
+vendor/firmware/ipa_fws.b02
+vendor/firmware/ipa_fws.mdt
+
 # NFC
 vendor/lib/libsn100u_fw.so
 
