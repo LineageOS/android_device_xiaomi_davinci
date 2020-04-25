@@ -29,22 +29,33 @@ import vendor.xiaomi.hardware.displayfeature.V1_0.IDisplayFeature;
 public class FodService extends Service {
 
   private static final String TAG = "FodService";
-  private static final boolean DEBUG = false;
+  private static final boolean DEBUG = true;
+  private Object mLock = new Object();
+
   private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
       final String action = intent.getAction();
       if (Intent.ACTION_SCREEN_ON.equals(action)) {
-        try {
-          IDisplayFeature mDisplayFeature = IDisplayFeature.getService();
-          mDisplayFeature.setFeature(0, 1, 2, 255);
-          mDisplayFeature.setFeature(0, 3, 0, 255);
-        } catch (RemoteException e) {
-          // Do nothing
-        }
+        setScreenEffect(Constants.SCREEN_ENHANCE, 2);
+        setScreenEffect(Constants.SCREEN_EYECARE, 0);
       }
     }
   };
+
+  public void setScreenEffect(int mode, int value) {
+    synchronized (this.mLock) {
+      try {
+        IDisplayFeature mDisplayFeature = IDisplayFeature.getService();
+        mDisplayFeature.setFeature(0, mode, value, 255);
+        if (DEBUG) {
+          Log.d(TAG, "setScreenEffect mode=" + mode + " value=" + value);
+        }
+      } catch (RemoteException e) {
+        // Do nothing
+      }
+    }
+  }
 
   @Override
   public void onCreate() {
