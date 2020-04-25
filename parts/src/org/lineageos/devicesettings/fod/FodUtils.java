@@ -18,11 +18,28 @@ package org.lineageos.devicesettings.fod;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.RemoteException;
 import android.os.UserHandle;
+import android.util.Log;
+
+import vendor.xiaomi.hardware.displayfeature.V1_0.IDisplayFeature;
 
 public class FodUtils {
   public static void startService(Context context) {
     context.startServiceAsUser(new Intent(context, FodService.class),
                                UserHandle.CURRENT);
+  }
+
+  private static Object mLock = new Object();
+
+  public static void setScreenEffect(int mode, int value) {
+    synchronized (mLock) {
+      try {
+        IDisplayFeature mDisplayFeature = IDisplayFeature.getService();
+        mDisplayFeature.setFeature(0, mode, value, 255);
+      } catch (RemoteException e) {
+        // Do nothing
+      }
+    }
   }
 }
