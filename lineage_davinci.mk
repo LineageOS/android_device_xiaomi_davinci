@@ -17,3 +17,6 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.build.fingerprint
