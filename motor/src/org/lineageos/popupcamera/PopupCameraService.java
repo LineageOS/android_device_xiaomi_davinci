@@ -278,11 +278,24 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     private void lightUp() {
         if (mPopupCameraPreferences.isLedAllowed()) {
+            // Save the active LED effects
+            String ledBreathing = FileUtils.readOneLine(Constants.LEFT_LED_BREATH_PATH);
+            String ledBrightness = FileUtils.readOneLine(Constants.LEFT_LED_PATH);
+
+            // Reset the active LED effects
+            FileUtils.writeLine(Constants.LEFT_LED_BREATH_PATH, "0");
+
+            // Enable the light effect
             FileUtils.writeLine(Constants.LEFT_LED_PATH, "255");
             FileUtils.writeLine(Constants.RIGHT_LED_PATH, "255");
 
             mHandler.postDelayed(() -> {
-                FileUtils.writeLine(Constants.LEFT_LED_PATH, "0");
+                // Restore the previous LED effects
+                if (ledBreathing.equals("1")) {
+                    FileUtils.writeLine(Constants.LEFT_LED_BREATH_PATH, ledBreathing);
+                } else {
+                    FileUtils.writeLine(Constants.LEFT_LED_PATH, ledBrightness);
+                }
                 FileUtils.writeLine(Constants.RIGHT_LED_PATH, "0");
             }, 1200);
         }
