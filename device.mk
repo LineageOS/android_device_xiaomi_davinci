@@ -97,7 +97,8 @@ PRODUCT_COPY_FILES += \
 # Sensor
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
+    android.hardware.sensors@1.0-service \
+    vendor.xiaomi.hardware.citsensorservice@1.1.vendor
 
 # Inherit from sm6150-common
 $(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
