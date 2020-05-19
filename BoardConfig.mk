@@ -35,6 +35,11 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+ODM_MANIFEST_SKUS += \
+    davinciin
+
+ODM_MANIFEST_DAVINCIIN_FILES := $(DEVICE_PATH)/manifest_davinciin.xml
+
 # NFC
 TARGET_USES_NQ_NFC := true
 
