@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2019-2020 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -40,6 +40,11 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
+ODM_MANIFEST_SKUS += \
+    davinci
+
+ODM_MANIFEST_DAVINCI_FILES := $(DEVICE_PATH)/manifest_davinci.xml
 
 # NFC
 TARGET_USES_NQ_NFC := true
