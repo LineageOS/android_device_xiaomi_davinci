@@ -106,6 +106,7 @@ void vendor_load_properties()
         property_override("ro.build.fingerprint", 
                               "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.2.0.QFJINXM:user/release-keys");
         property_override("ro.product.mod_device", "davinciin_in_global");
+        property_override("ro.boot.product.hardware.sku", "davinciin");
     }
     else if (region == "GLOBAL")
     {

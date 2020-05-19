@@ -1,0 +1,12 @@
+<manifest version="1.0" type="device">
+    <hal override="true">
+        <name>android.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+    </hal>
+    <hal override="true">
+        <name>vendor.nxp.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+    </hal>
+</manifest>
