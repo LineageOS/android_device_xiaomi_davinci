@@ -1,5 +1,4 @@
 # Display
-/sys/devices/platform/soc/soc:qcom,dsi-display/fod_hbm               u:object_r:sysfs_fod:s0
 /sys/devices/virtual/touch/tp_dev/fod_status                         u:object_r:sysfs_fod:s0
 
 # HALs
