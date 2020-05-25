@@ -15,6 +15,9 @@ AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 
 BOARD_USES_ALSA_AUDIO := true
 
+# FOD
+TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.davinci
+
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 
