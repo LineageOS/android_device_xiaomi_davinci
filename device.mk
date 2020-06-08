@@ -63,10 +63,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.davinci.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.davinci.rc
 
-# Livedisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.xiaomi_sm6150
-
 # NFC
 PRODUCT_SOONG_NAMESPACES += \
     vendor/nxp/opensource/sn100x
