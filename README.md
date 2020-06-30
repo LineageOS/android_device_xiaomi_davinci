@@ -27,4 +27,4 @@ Both were announced and released in June 2019.
 ![Xiaomi Mi 9T/Redmi K20](https://xiaomi-mi.com/uploads/CatalogueImage/mi9t%20(1)_17539_1560516684.jpg "Xiaomi Redmi K20 in black")
 
 #### Proprietary-files.txt
-All unpinned blobs are extracted from [miui_DAVINCI_20.5.19_af1206984b_10.0.zip](https://bigota.d.miui.com/20.5.19/miui_DAVINCI_20.5.19_af1206984b_10.0.zip).
+All unpinned blobs are extracted from [miui_DAVINCI_20.7.1_b504f2227d_10.0.zip](https://bigota.d.miui.com/20.7.1/miui_DAVINCI_20.7.1_b504f2227d_10.0.zip).
