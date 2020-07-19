@@ -42,88 +42,112 @@
 using android::base::GetProperty;
 using android::init::property_set;
 
-std::vector<std::string> ro_props_default_source_order = {
-    "",
-    "odm.",
-    "product.",
-    "system.",
-    "vendor.",
+constexpr const char *RO_PROP_SOURCES[] = {
+    nullptr,   "product.", "product_services.", "odm.",
+    "vendor.", "system.",  "bootimage.",
 };
 
-void property_override(char const prop[], char const value[], bool add = true)
-{
-    prop_info *pi;
+constexpr const char *PRODUCTS[] = {
+    "davinci",
+    "davincin",
+};
 
-    pi = (prop_info *)__system_property_find(prop);
-    if (pi)
-        __system_property_update(pi, value, strlen(value));
-    else if (add)
-        __system_property_add(prop, strlen(prop), value, strlen(value));
+constexpr const char *DEVICES[] = {
+    "Mi 9T",
+    "Redmi K20",
+};
+
+constexpr const char *BUILD_DESCRIPTION[] = {
+    "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJCNXM release-keys",
+    "davinci-user 10 QKQ1.190825.002 V12.0.2.0.QFJMIXM release-keys",
+    "davinciin-user 10 QKQ1.190825.002 V12.0.0.2.QFJINXM release-keys",
+};
+
+constexpr const char *BUILD_FINGERPRINT[] = {
+    "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJCNXM:user/"
+    "release-keys",
+    "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.2.0.QFJMIXM:user/"
+    "release-keys",
+    "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V12.0.0.2.QFJINXM:user/"
+    "release-keys",
+};
+
+constexpr const char *CLIENT_ID[] = {
+    "android-xiaomi",
+    "android-xiaomi-rev1",
+};
+
+void property_override(char const prop[], char const value[], bool add = true) {
+  prop_info *pi;
+
+  pi = (prop_info *)__system_property_find(prop);
+  if (pi)
+    __system_property_update(pi, value, strlen(value));
+  else if (add)
+    __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void vendor_load_properties()
-{
-    const auto set_ro_build_prop = [](const std::string &source,
-                                      const std::string &prop,
-                                      const std::string &value) {
-        auto prop_name = "ro." + source + "build." + prop;
-        property_override(prop_name.c_str(), value.c_str(), false);
-    };
+void load_props(const char *model, bool is_9t = false, bool is_in = false) {
+  const auto ro_prop_override = [](const char *source, const char *prop,
+                                   const char *value, bool product) {
+    std::string prop_name = "ro.";
 
-    const auto set_ro_product_prop = [](const std::string &source,
-                                        const std::string &prop,
-                                        const std::string &value) {
-        auto prop_name = "ro.product." + source + prop;
-        property_override(prop_name.c_str(), value.c_str(), false);
-    };
+    if (product)
+      prop_name += "product.";
+    if (source != nullptr)
+      prop_name += source;
+    if (!product)
+      prop_name += "build.";
+    prop_name += prop;
 
-    std::string region;
-    region = GetProperty("ro.boot.hwc", "");
+    property_override(prop_name.c_str(), value);
+  };
 
-    if (region == "CN")
-    {
-        for (const auto &source : ro_props_default_source_order)
-        {
-            set_ro_build_prop(source, "fingerprint",
-                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys");
-            set_ro_product_prop(source, "device", "davinci");
-            set_ro_product_prop(source, "model", "Redmi K20");
-        }
-        property_override("ro.build.fingerprint",
-                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys");
-        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys");
-        property_override("ro.boot.product.hardware.sku", "davinci");
+  for (const auto &source : RO_PROP_SOURCES) {
+    ro_prop_override(source, "device", is_in ? PRODUCTS[1] : PRODUCTS[0], true);
+    ro_prop_override(source, "model", model, true);
+    if (!is_in) {
+      ro_prop_override(source, "name", PRODUCTS[0], true);
+      ro_prop_override(source, "fingerprint",
+                       is_9t ? BUILD_FINGERPRINT[1] : BUILD_FINGERPRINT[0],
+                       false);
+      ro_prop_override(nullptr, "fingerprint",
+                       is_9t ? BUILD_FINGERPRINT[1] : BUILD_FINGERPRINT[0],
+                       false);
+    } else {
+      ro_prop_override(source, "name", PRODUCTS[1], true);
+      ro_prop_override(source, "fingerprint", BUILD_FINGERPRINT[2], false);
+      ro_prop_override(nullptr, "fingerprint", BUILD_FINGERPRINT[2], false);
     }
-    else if (region == "INDIA")
-    {
-        for (const auto &source : ro_props_default_source_order)
-        {
-            set_ro_build_prop(source, "fingerprint",
-                              "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.2.0.QFJINXM:user/release-keys");
-            set_ro_product_prop(source, "device", "davinciin");
-            set_ro_product_prop(source, "model", "Redmi K20");
-        }
-        property_override("ro.build.description", "davinciin-user 10 QKQ1.190825.002 V11.0.2.0.QFJINXM release-keys");
-        property_override("ro.build.fingerprint", 
-                              "Xiaomi/davinciin/davinciin:10/QKQ1.190825.002/V11.0.2.0.QFJINXM:user/release-keys");
-        property_override("ro.product.mod_device", "davinciin_in_global");
-        property_override("ro.com.google.clientidbase", "android-xiaomi-rev1");
-    }
-    else if (region == "GLOBAL")
-    {
-        for (const auto &source : ro_props_default_source_order)
-        {
-            set_ro_build_prop(source, "fingerprint",
-                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.0.11.QFJMIXM:user/release-keys");
-            set_ro_product_prop(source, "device", "davinci");
-            set_ro_product_prop(source, "model", "Mi 9T");
-        }
-        property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V12.0.0.11.QFJMIXM release-keys");
-        property_override("ro.build.fingerprint",
-                              "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.0.11.QFJMIXM:user/release-keys");
-        property_override("ro.product.mod_device", "davinci_global");
-        property_override("ro.boot.product.hardware.sku", "davinci");
-        property_override("ro.com.google.clientidbase", "android-xiaomi");
-        property_override("ro.com.google.clientidbase.ms", "android-xiaomi-rev1");
-    }
+  }
+  if (!is_in) {
+    ro_prop_override(nullptr, "description",
+                     is_9t ? BUILD_DESCRIPTION[1] : BUILD_DESCRIPTION[0],
+                     false);
+    property_override("ro.boot.product.hardware.sku", PRODUCTS[0]);
+  } else {
+    ro_prop_override(nullptr, "description", BUILD_DESCRIPTION[2], false);
+  }
+  ro_prop_override(nullptr, "product", model, false);
+
+  if (is_9t) {
+    ro_prop_override(nullptr, "com.google.clientidbase", CLIENT_ID[0], false);
+  } else if (is_in) {
+    ro_prop_override(nullptr, "com.google.clientidbase", CLIENT_ID[0], false);
+    ro_prop_override(nullptr, "com.google.clientidbase.ms", CLIENT_ID[1],
+                     false);
+  }
+}
+
+void vendor_load_properties() {
+  std::string region;
+  region = GetProperty("ro.boot.hwc", "");
+
+  if (region == "CN") {
+    load_props(DEVICES[1], false, false);
+  } else if (region == "INDIA") {
+    load_props(DEVICES[1], false, true);
+  } else if (region == "GLOBAL") {
+    load_props(DEVICES[0], true, false);
+  }
 }
