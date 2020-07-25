@@ -21,6 +21,10 @@ TARGET_USES_FOD_ZPOS := true
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+ODM_MANIFEST_SKUS += davinci
+ODM_MANIFEST_DAVINCI_FILES := \
+    $(COMMON_PATH)/configs/hidl/manifest-qva.xml \
+    $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml
 
 # Kernel
 TARGET_KERNEL_CONFIG := davinci_defconfig
