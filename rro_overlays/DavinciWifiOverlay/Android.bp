@@ -1,7 +1,6 @@
 runtime_resource_overlay {
     name: "DavinciWifiOverlay",
     theme: "DavinciWifiOverlay",
-    certificate: "platform",
     sdk_version: "current",
     product_specific: true
 }
