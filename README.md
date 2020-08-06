@@ -11,7 +11,7 @@ Both were announced and released in June 2019.
 | SoC          | Qualcomm SM6150 Snapdragon 730                  |
 | CPU          | 2x2.2 GHz Kryo 470 & 6x1.8 GHz Kryo 470         |
 | GPU          | Adreno 618                                      |
-| Memory       | 6GM RAM (LPDDR4X)                               |
+| Memory       | 6GB RAM (LPDDR4X)                               |
 | Shipped Android version | 9.0 with MIUI 10                     |
 | Storage      | 128GB UFS 2.1 flash storage                     |
 | Battery      | Non-removable Li-Po 4000 mAh                    |
@@ -24,7 +24,7 @@ Both were announced and released in June 2019.
 
 ## Device picture
 
-![Xiaomi Mi 9T/Redmi K20](https://xiaomi-mi.com/uploads/CatalogueImage/mi9t%20(1)_17539_1560516684.jpg "Xiaomi Redmi K20 in black")
+![Xiaomi Mi 9T/Redmi K20](https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-k20/blue-slider-1_03.png "Xiaomi Redmi K20 in blue")
 
 #### Proprietary-files.txt
 All unpinned blobs are extracted from [miui_DAVINCI_20.8.3_07fcb95bf7_10.0](https://bigota.d.miui.com/20.8.3/miui_DAVINCI_20.8.3_07fcb95bf7_10.0.zip).
