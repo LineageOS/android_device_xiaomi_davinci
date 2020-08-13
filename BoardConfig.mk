@@ -27,6 +27,7 @@ AUDIO_FEATURE_ENABLED_TFA98XX_FEEDBACK := true
 
 # Fingerprint
 TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension
+TARGET_USES_FOD_ZPOS := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_davinci
