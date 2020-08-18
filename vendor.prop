@@ -1,5 +1,6 @@
 # Audio
 persist.vendor.audio.hifi=false
+ro.vendor.audio.sdk.fluencetype=fluence
 vendor.audio.feature.compr_voip.enable=false
 vendor.voice.path.for.pcm.voip=false
 
