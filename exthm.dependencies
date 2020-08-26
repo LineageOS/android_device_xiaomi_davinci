@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_device_xiaomi_davinci",
-    "target_path": "device/xiaomi/davinci"
+    "repository": "android_device_xiaomi_sm6150-common",
+    "target_path": "device/xiaomi/sm6150-common"
   }
 ]
