@@ -11,7 +11,7 @@ BOARD_BOOT_HEADER_VERSION := 1
 TARGET_SCREEN_DENSITY := 440
 
 # Inherit from sm6150-common
--include device/xiaomi/davinci/BoardConfigCommon.mk
+-include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/davinci
 
