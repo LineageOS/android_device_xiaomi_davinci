@@ -1,3 +1,6 @@
+on property:ro.boot.hwversion=*
+    setprop ro.boot.hardware.revision ${ro.boot.hwversion}
+
 on property:ro.boot.hwc=CN
     setprop bluetooth.device.default_name "Redmi K20"
 
