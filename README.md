@@ -8,7 +8,7 @@ Both were announced and released in June 2019.
 
 | Device       | Xiaomi Mi 9T/Redmi K20                          |
 | -----------: | :---------------------------------------------- |
-| SoC          | Qualcomm SM6150 Snapdragon 730                  |
+| SoC          | Qualcomm SM7150-AA Snapdragon 730               |
 | CPU          | 2x2.2 GHz Kryo 470 & 6x1.8 GHz Kryo 470         |
 | GPU          | Adreno 618                                      |
 | Memory       | 6GB RAM (LPDDR4X)                               |
