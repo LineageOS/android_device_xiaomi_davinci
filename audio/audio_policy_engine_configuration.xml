@@ -17,8 +17,6 @@
 <configuration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xi:include href="audio_policy_engine_product_strategies.xml"/>
-    <xi:include href="audio_policy_engine_criterion_types.xml"/>
-    <xi:include href="audio_policy_engine_criteria.xml"/>
     <xi:include href="audio_policy_engine_stream_volumes.xml"/>
     <xi:include href="audio_policy_engine_default_stream_volumes.xml"/>
 

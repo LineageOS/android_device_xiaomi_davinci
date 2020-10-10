@@ -75,6 +75,9 @@
         <AttributesGroup streamType="AUDIO_STREAM_SYSTEM" volumeGroup="system">
             <Attributes> <Usage value="AUDIO_USAGE_ASSISTANCE_SONIFICATION"/> </Attributes>
         </AttributesGroup>
+        <!--AttributesGroup streamType="AUDIO_STREAM_VOICEASSIST" volumeGroup="voice_assist">
+            <Attributes> <Usage value="AUDIO_USAGE_VOICEASSIST"/> </Attributes>
+        </AttributesGroup-->
     </ProductStrategy>
 
     <ProductStrategy name="STRATEGY_DTMF">
