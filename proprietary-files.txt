@@ -55,6 +55,8 @@ vendor/etc/camera/lf_facerank_model.bin
 vendor/etc/camera/male_bg.png
 vendor/etc/camera/male_icon.png
 vendor/etc/camera/megviifacepp_0_5_2_model
+vendor/etc/camera/mibokeh_712_opencl.bin
+vendor/etc/camera/mibokeh_712_parameter.bin
 vendor/etc/camera/Roboto-Thin.ttf
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/score_bg.png
@@ -206,8 +208,6 @@ vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
 vendor/lib64/libmibokeh_712.so
-vendor/lib64/libmmcamera_faceproc.so
-vendor/lib64/libmmcamera_faceproc2.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
 vendor/lib64/libnpu.so
@@ -320,9 +320,9 @@ vendor/etc/init/vendor.xiaomi.hardware.touchfeature@1.0-service.rc
 vendor/lib64/hw/vendor.xiaomi.hardware.touchfeature@1.0-impl.so
 
 # Thermal
-init.mi_thermald.rc:vendor/etc/init/init.mi_thermald.rc
 vendor/bin/mi_thermald
 vendor/bin/thermal-engine
+vendor/etc/init/init.mi_thermald.rc
 vendor/etc/thermal-arvr.conf
 vendor/etc/thermal-camera.conf
 vendor/etc/thermal-chg-only.conf
@@ -333,6 +333,7 @@ vendor/etc/thermal-nolimits.conf
 vendor/etc/thermal-normal.conf
 vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
+vendor/etc/thermal-youtube.conf
 
 # Touchscreen
 vendor/firmware/goodix_gt9886_limit_f10_first.tporder
