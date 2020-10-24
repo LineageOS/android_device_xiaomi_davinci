@@ -84,22 +84,11 @@ volume index from 0 to 100.
     <volumeGroup>
         <name>music</name>
         <indexMin>0</indexMin>
-        <indexMax>15</indexMax>
+        <indexMax>150</indexMax>
         <volume deviceCategory="DEVICE_CATEGORY_HEADSET">
-              <point>1,-5978</point>
-              <point>13,-4617</point>
-              <point>20,-3956</point>
-              <point>27,-3368</point>
-              <point>33,-3020</point>
-              <point>40,-2656</point>
-              <point>47,-1885</point>
-              <point>53,-1779</point>
-              <point>60,-1217</point>
-              <point>66,-967</point>
-              <point>73,-589</point>
-              <point>80,-394</point>
-              <point>87,-360</point>
-              <point>93,-70</point>
+              <point>1,-4950</point>
+              <point>33,-3350</point>
+              <point>66,-1500</point>
               <point>100,0</point>
         </volume>
         <volume deviceCategory="DEVICE_CATEGORY_SPEAKER">
@@ -124,18 +113,16 @@ volume index from 0 to 100.
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID"  ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>
     </volumeGroup>
 
-    <!-- 47ea671e71c000a3103ecc15dbc25cac007dd51e is required >
     <volumeGroup>
-        <name>voice_assist</name>
+        <name>assistant</name>
         <indexMin>0</indexMin>
         <indexMax>15</indexMax>
         <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="DEFAULT_DEVICE_CATEGORY_SPEAKER_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_A2DP" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="DEFAULT_MEDIA_VOLUME_CURVE"/>
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID"  ref="DEFAULT_HEARING_AID_VOLUME_CURVE"/>
-    </volumeGroup-->
+    </volumeGroup>
 
     <volumeGroup>
         <name>alarm</name>
@@ -250,26 +237,5 @@ volume index from 0 to 100.
         <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID" ref="DEFAULT_NON_MUTABLE_HEARING_AID_VOLUME_CURVE"/>
     </volumeGroup>
 
-    <volumeGroup>
-        <name>rerouting</name>
-        <indexMin>0</indexMin>
-        <indexMax>1</indexMax>
-        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID" ref="FULL_SCALE_VOLUME_CURVE"/>
-    </volumeGroup>
-
-    <volumeGroup>
-        <name>patch</name>
-        <indexMin>0</indexMin>
-        <indexMax>1</indexMax>
-        <volume deviceCategory="DEVICE_CATEGORY_HEADSET" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_SPEAKER" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EARPIECE" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_EXT_MEDIA" ref="FULL_SCALE_VOLUME_CURVE"/>
-        <volume deviceCategory="DEVICE_CATEGORY_HEARING_AID" ref="FULL_SCALE_VOLUME_CURVE"/>
-    </volumeGroup>
 </volumeGroups>
 
