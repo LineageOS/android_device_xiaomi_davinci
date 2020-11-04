@@ -4,6 +4,8 @@ The Xiaomi Mi 9T/Redmi K20 (codenamed _"davinci/davinciin"_) are mid range smart
 
 Both were announced and released in June 2019.
 
+# Fork for ubports
+
 ## Device specifications
 
 | Device       | Xiaomi Mi 9T/Redmi K20                          |
