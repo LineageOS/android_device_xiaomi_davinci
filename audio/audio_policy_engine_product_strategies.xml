@@ -57,14 +57,16 @@
     <ProductStrategy name="STRATEGY_SONIFICATION_RESPECTFUL">
         <AttributesGroup streamType="AUDIO_STREAM_NOTIFICATION" volumeGroup="notification">
             <Attributes> <Usage value="AUDIO_USAGE_NOTIFICATION"/> </Attributes>
-            <Attributes> <Usage value="AUDIO_USAGE_NOTIFICATION_COMMUNICATION_REQUEST"/> </Attributes>
-            <Attributes> <Usage value="AUDIO_USAGE_NOTIFICATION_COMMUNICATION_INSTANT"/> </Attributes>
-            <Attributes> <Usage value="AUDIO_USAGE_NOTIFICATION_COMMUNICATION_DELAYED"/> </Attributes>
-            <Attributes> <Usage value="AUDIO_USAGE_NOTIFICATION_EVENT"/> </Attributes>
         </AttributesGroup>
     </ProductStrategy>
 
     <ProductStrategy name="STRATEGY_MEDIA">
+        <AttributesGroup streamType="AUDIO_STREAM_ASSISTANT" volumeGroup="assistant">
+            <Attributes>
+                <ContentType value="AUDIO_CONTENT_TYPE_SPEECH"/>
+                <Usage value="AUDIO_USAGE_ASSISTANT"/>
+            </Attributes>
+        </AttributesGroup>
          <AttributesGroup streamType="AUDIO_STREAM_MUSIC" volumeGroup="music">
             <Attributes> <Usage value="AUDIO_USAGE_MEDIA"/> </Attributes>
             <Attributes> <Usage value="AUDIO_USAGE_GAME"/> </Attributes>
@@ -75,9 +77,6 @@
         <AttributesGroup streamType="AUDIO_STREAM_SYSTEM" volumeGroup="system">
             <Attributes> <Usage value="AUDIO_USAGE_ASSISTANCE_SONIFICATION"/> </Attributes>
         </AttributesGroup>
-        <!--AttributesGroup streamType="AUDIO_STREAM_VOICEASSIST" volumeGroup="voice_assist">
-            <Attributes> <Usage value="AUDIO_USAGE_VOICEASSIST"/> </Attributes>
-        </AttributesGroup-->
     </ProductStrategy>
 
     <ProductStrategy name="STRATEGY_DTMF">
@@ -93,21 +92,6 @@
             <Attributes> <Flags value="AUDIO_FLAG_BEACON"/> </Attributes>
         </AttributesGroup>
     </ProductStrategy>
-
-    <!-- Routing Strategy rerouting may be removed as following media??? -->
-    <ProductStrategy name="STRATEGY_REROUTING">
-        <AttributesGroup streamType="AUDIO_STREAM_REROUTING" volumeGroup="rerouting">
-            <Attributes></Attributes>
-        </AttributesGroup>
-    </ProductStrategy>
-
-    <!-- Default product strategy has empty attributes -->
-    <ProductStrategy name="STRATEGY_PATCH">
-        <AttributesGroup streamType="AUDIO_STREAM_PATCH" volumeGroup="patch">
-            <Attributes></Attributes>
-        </AttributesGroup>
-    </ProductStrategy>
-
 
 </ProductStrategies>
 
