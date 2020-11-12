@@ -321,7 +321,6 @@ vendor/lib64/hw/vendor.xiaomi.hardware.touchfeature@1.0-impl.so
 
 # Thermal
 vendor/bin/mi_thermald
-vendor/bin/thermal-engine
 vendor/etc/init/init.mi_thermald.rc
 vendor/etc/thermal-arvr.conf
 vendor/etc/thermal-camera.conf
