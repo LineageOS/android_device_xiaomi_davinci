@@ -25,7 +25,6 @@ vendor/firmware/tfa98xx.cnt
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 
 # Camera
 vendor/bin/remosaic_daemon
