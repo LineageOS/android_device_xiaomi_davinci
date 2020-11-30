@@ -31,7 +31,6 @@ vendor/bin/remosaic_daemon
 vendor/etc/camera/CFR_para_T.bin
 vendor/etc/camera/CFR_para_UW.bin
 vendor/etc/camera/CFR_para_W.bin
-vendor/etc/camera/MIUI_Time.ttf
 vendor/etc/camera/Miui-Light.ttf
 vendor/etc/camera/almalence_sr_params_tele.config
 vendor/etc/camera/almalence_sr_params_wide.config
