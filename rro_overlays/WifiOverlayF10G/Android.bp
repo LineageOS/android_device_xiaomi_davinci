@@ -1,0 +1,6 @@
+runtime_resource_overlay {
+    name: "WifiOverlayF10G",
+    theme: "WifiOverlayF10G",
+    sdk_version: "current",
+    product_specific: true
+}
