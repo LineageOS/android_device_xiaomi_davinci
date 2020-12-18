@@ -25,5 +25,5 @@
       android:requiredSystemPropertyName="ro.boot.hwc"
       android:requiredSystemPropertyValue="GLOBAL"
       android:isStatic="true"
-      android:priority="0"/>
+      android:priority="500"/>
 </manifest>
