@@ -304,6 +304,22 @@
       ]
     },
     {
+      "Name": "UpMigrate",
+      "Path": "/proc/sys/kernel/sched_upmigrate",
+      "Values": [
+        "0x5F",
+        "0x32"
+      ]
+    },
+    {
+      "Name": "DownMigrate",
+      "Path": "/proc/sys/kernel/sched_downmigrate",
+      "Values": [
+        "0x55",
+        "0x28"
+      ]
+    },
+    {
       "Name": "PowerHALMainState",
       "Path": "vendor.powerhal.state",
       "Values": [
@@ -534,6 +550,18 @@
       "Node": "UfsHibern8Enable",
       "Duration": 2000,
       "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "UpMigrate",
+      "Duration": 2000,
+      "Value": "0x32"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "DownMigrate",
+      "Duration": 2000,
+      "Value": "0x28"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
