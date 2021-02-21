@@ -65,6 +65,10 @@ public class PopupCameraService extends Service implements Handler.Callback {
     private Sensor mFreeFallSensor;
     private SoundPool mSoundPool;
 
+    private boolean mLedBusy = false;
+    private String mLedBreathing = "0";
+    private String mLedBrightness = "0";
+
     private CameraManager.AvailabilityCallback availabilityCallback =
             new CameraManager.AvailabilityCallback() {
                 @Override
@@ -278,9 +282,12 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     private void lightUp() {
         if (mPopupCameraPreferences.isLedAllowed()) {
-            // Save the active LED effects
-            String ledBreathing = FileUtils.readOneLine(Constants.LEFT_LED_BREATH_PATH);
-            String ledBrightness = FileUtils.readOneLine(Constants.LEFT_LED_PATH);
+            // Save the active LED effects if it's not our effect and mark the LED as busy
+            if (!mLedBusy) {
+                mLedBreathing = FileUtils.readOneLine(Constants.LEFT_LED_BREATH_PATH);
+                mLedBrightness = FileUtils.readOneLine(Constants.LEFT_LED_BRIGHTNESS_PATH);
+                mLedBusy = true;
+            }
 
             // Reset the active LED effects
             FileUtils.writeLine(Constants.LEFT_LED_BREATH_PATH, "0");
@@ -291,12 +298,15 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
             mHandler.postDelayed(() -> {
                 // Restore the previous LED effects
-                if (ledBreathing.equals("1")) {
-                    FileUtils.writeLine(Constants.LEFT_LED_BREATH_PATH, ledBreathing);
+                if (mLedBreathing.equals("1")) {
+                    FileUtils.writeLine(Constants.LEFT_LED_BREATH_PATH, mLedBreathing);
                 } else {
-                    FileUtils.writeLine(Constants.LEFT_LED_PATH, ledBrightness);
+                    FileUtils.writeLine(Constants.LEFT_LED_PATH, mLedBrightness);
                 }
                 FileUtils.writeLine(Constants.RIGHT_LED_PATH, "0");
+
+                // Unmark the LED as busy since our effect is done
+                mLedBusy = false;
             }, 1200);
         }
     }
