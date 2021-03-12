@@ -8,3 +8,6 @@
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/davinci
+
+# Inherit from proprietary files
+include vendor/xiaomi/davinci/BoardConfigVendor.mk
