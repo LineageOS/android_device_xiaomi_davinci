@@ -9,6 +9,9 @@ include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/davinci
 
+# Kernel
+TARGET_KERNEL_CONFIG := davinci_defconfig
+
 # Screen density
 TARGET_SCREEN_DENSITY := 440
 
