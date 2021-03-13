@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 **
-** Copyright 2009, The Android Open Source Project
+** Copyright 2017, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -16,35 +16,27 @@
 ** limitations under the License.
 */
 -->
-
 <device name="Android">
-    <item name="none">0</item>
-    <item name="screen.on">75.47</item>
-    <item name="screen.full">387.93</item>
-    <item name="bluetooth.active">4.43</item>
-    <item name="bluetooth.on">0.9</item>
-    <item name="wifi.on">0.5</item>
-    <item name="wifi.active">135.59</item>
-    <item name="wifi.scan">19.46</item>
-    <item name="audio">20.71</item>
-    <item name="video">40.63</item>
-    <item name="camera.flashlight">288.29</item>
-    <item name="camera.avg">770.28</item>
-    <item name="gps.on">59.39</item>
-    <item name="radio.active">165.56</item>
-    <item name="radio.scanning">45</item>
-    <array name="radio.on">
-        <value>9.48</value>
-        <value>9.48</value>
-    </array>
-    <item name="modem.controller.idle">0</item>
-    <item name="modem.controller.rx">0</item>
-    <item name="modem.controller.tx">0</item>
-    <item name="modem.controller.voltage">0</item>
+    <!-- Most values are the incremental current used by a feature,
+       in mA (measured at nominal voltage).
+    -->
+
+    <!-- This is the battery capacity in mAh -->
+    <item name="battery.capacity">4000</item>
+
+    <!-- Number of cores each CPU cluster contains -->
     <array name="cpu.clusters.cores">
         <value>6</value>
         <value>2</value>
     </array>
+
+    <!-- Power consumption when CPU is suspended -->
+    <item name="cpu.suspend">4.48</item>
+    <!-- Additional power consumption when CPU is in a kernel idle loop -->
+    <item name="cpu.idle">7.44</item>
+
+    <!-- Different CPU speeds as reported in
+         /sys/devices/system/cpu/cpu0/cpufreq/stats/scaling_available_frequencies -->
     <array name="cpu.core_speeds.cluster0">
         <value>300000</value>
         <value>576000</value>
@@ -57,18 +49,8 @@
         <value>1708800</value>
         <value>1804800</value>
     </array>
-    <array name="cpu.core_power.cluster0">
-        <value>120.09</value>
-        <value>128.85</value>
-        <value>139.87</value>
-        <value>159.83</value>
-        <value>180.88</value>
-        <value>191.4</value>
-        <value>209.57</value>
-        <value>257.8</value>
-        <value>276.02</value>
-        <value>285.67</value>
-    </array>
+    <!-- Different CPU speeds as reported in
+         /sys/devices/system/cpu/cpu6/cpufreq/stats/scaling_available_frequencies -->
     <array name="cpu.core_speeds.cluster1">
         <value>300000</value>
         <value>652800</value>
@@ -84,6 +66,23 @@
         <value>2169600</value>
         <value>2208000</value>
     </array>
+
+    <!-- Additional power used by a CPU from cluster 0 when running at different
+         speeds. Currently this measurement also includes cluster cost. -->
+    <array name="cpu.core_power.cluster0">
+        <value>120.09</value>
+        <value>128.85</value>
+        <value>139.87</value>
+        <value>159.83</value>
+        <value>180.88</value>
+        <value>191.4</value>
+        <value>209.57</value>
+        <value>257.8</value>
+        <value>276.02</value>
+        <value>285.67</value>
+    </array>
+    <!-- Additional power used by a CPU from cluster 1 when running at different
+         speeds. Currently this measurement also includes cluster cost. -->
     <array name="cpu.core_power.cluster1">
         <value>199.52</value>
         <value>282.09</value>
@@ -99,19 +98,50 @@
         <value>1514.4</value>
         <value>1583.92</value>
     </array>
-    <item name="cpu.idle">7.44</item>
-    <item name="cpu.suspend">4.48</item>
-    <item name="battery.capacity">4000</item>
-    <item name="wifi.controller.idle">0</item>
-    <item name="wifi.controller.rx">0</item>
-    <item name="wifi.controller.tx">0</item>
-    <array name="wifi.controller.tx_levels" />
-    <item name="wifi.controller.voltage">0</item>
-    <array name="wifi.batchedscan">
-        <value>.0002</value>
-        <value>.002</value>
-        <value>.02</value>
-        <value>.2</value>
-        <value>2</value>
+
+    <!-- Additional power used when screen is turned on at minimum brightness -->
+    <item name="screen.on">75.47</item>
+    <!-- Additional power used when screen is at maximum brightness, compared to
+         screen at minimum brightness -->
+    <item name="screen.full">387.93</item>
+
+    <!-- Average power used by the camera flash module when on -->
+    <item name="camera.flashlight">288.29</item>
+    <!-- Average power use by the camera subsystem for a typical camera
+         application. Intended as a rough estimate for an application running a
+         preview and capturing approximately 10 full-resolution pictures per
+         minute. -->
+    <item name="camera.avg">770.28</item>
+
+    <!-- Additional power used by the audio hardware, probably due to DSP -->
+    <item name="audio">20.71</item>
+
+    <!-- Additional power used by the video hardware, probably due to DSP -->
+    <item name="video">40.63</item>
+
+    <!-- Additional power used when GPS is acquiring a signal -->
+    <item name="gps.on">59.39</item>
+
+    <!-- Additional power used when cellular radio is transmitting/receiving -->
+    <item name="radio.active">165.56</item>
+    <!-- Additional power used when cellular radio is paging the tower -->
+    <item name="radio.scanning">45</item>
+    <!-- Additional power used when the cellular radio is on. Multi-value entry,
+         one per signal strength (no signal, weak, moderate, strong) -->
+    <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
+        <value>9.48</value>
+        <value>9.48</value>
     </array>
+
+    <!-- Additional power used when bluetooth is active -->
+    <item name="bluetooth.active">4.43</item>
+    <!-- Additional power used when bluetooth is on -->
+    <item name="bluetooth.on">0.9</item>
+
+    <!-- Additional power used when WiFi is active -->
+    <item name="wifi.active">135.59</item>
+    <!-- Additional power used when WiFi is on -->
+    <item name="wifi.on">0.5</item>
+    <!-- Additional power used when WiFi is scanning -->
+    <item name="wifi.scan">19.46</item>
 </device>
