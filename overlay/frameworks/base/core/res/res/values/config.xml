@@ -214,4 +214,7 @@
     <!-- True if the display hardware only has brightness buckets rather than a full range of
          backlight values -->
     <bool name="config_displayBrightnessBucketsInDoze">true</bool>
+
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">true</bool>
 </resources>
