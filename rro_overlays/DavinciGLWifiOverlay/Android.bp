@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "DavinciGLWifiOverlay",
+    vendor: true
+}
