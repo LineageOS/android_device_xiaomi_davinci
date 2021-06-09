@@ -85,6 +85,14 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+PRODUCT_PACKAGES += \
+    DavinciCNSettingsProviderOverlay \
+    DavinciCNWifiOverlay \
+    DavinciGLSettingsProviderOverlay \
+    DavinciGLWifiOverlay \
+    DavinciINSettingsProviderOverlay \
+    DavinciINWifiOverlay
+
 # Partitions
 PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
 
@@ -106,10 +114,6 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# WiFi
-PRODUCT_PACKAGES += \
-    DavinciWifiOverlay
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/davinci/davinci-vendor.mk)
