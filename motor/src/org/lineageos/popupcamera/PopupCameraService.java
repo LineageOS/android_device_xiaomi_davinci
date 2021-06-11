@@ -165,8 +165,9 @@ public class PopupCameraService extends Service implements Handler.Callback {
         public void onNotify(MotorEvent event) {
             int status = event.vaalue;
             int cookie = event.cookie;
-            if (DEBUG)
+            if (DEBUG) {
                 Log.d(TAG, "onNotify: cookie=" + cookie + ", status=" + status);
+            }
             synchronized (mLock) {
                 if (status == Constants.MOTOR_STATUS_CALIB_OK
                         || status == Constants.MOTOR_STATUS_CALIB_ERROR) {
@@ -184,8 +185,9 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     protected void calibrateMotor() {
         synchronized (mLock) {
-            if (mMotorCalibrating)
+            if (mMotorCalibrating) {
                 return;
+            }
             if (mMotor == null) {
                 try {
                     mMotor = IMotor.getService();
@@ -207,15 +209,17 @@ public class PopupCameraService extends Service implements Handler.Callback {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (DEBUG)
+        if (DEBUG) {
             Log.d(TAG, "Starting service");
+        }
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        if (DEBUG)
+        if (DEBUG) {
             Log.d(TAG, "Destroying service");
+        }
         super.onDestroy();
     }
 
@@ -232,8 +236,9 @@ public class PopupCameraService extends Service implements Handler.Callback {
             mMotorBusy = true;
             try {
                 int status = mMotor.getMotorStatus();
-                if (DEBUG)
+                if (DEBUG) {
                     Log.d(TAG, "updateMotor: status=" + status + ", cameraState=" + cameraState);
+                }
                 if (cameraState.equals(Constants.OPEN_CAMERA_STATE)
                         && (status == Constants.MOTOR_STATUS_TAKEBACK_OK
                                 || status == Constants.MOTOR_STATUS_CALIB_OK)) {
