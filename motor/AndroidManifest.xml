@@ -44,7 +44,7 @@
             android:name=".PopupCameraSettingsActivity"
             android:exported="false"
             android:label="@string/popup_title"
-            android:theme="@style/Theme.Main">
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>

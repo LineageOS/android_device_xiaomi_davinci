@@ -22,7 +22,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
@@ -40,7 +39,6 @@ public class PopupCameraSettingsFragment extends PreferenceFragment
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.popup_settings);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mCalibrationPreference = (Preference) findPreference(MOTOR_CALIBRATION_KEY);
         mCalibrationPreference.setOnPreferenceClickListener(this);
@@ -48,15 +46,6 @@ public class PopupCameraSettingsFragment extends PreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
-            return true;
-        }
         return false;
     }
 
