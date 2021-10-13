@@ -19,10 +19,6 @@ AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
 
 BOARD_USES_ALSA_AUDIO := true
 
-# FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.davinci
-TARGET_USES_FOD_ZPOS := true
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 ODM_MANIFEST_SKUS += davinci
@@ -70,6 +66,10 @@ TARGET_SCREEN_DENSITY := 440
 # Sepolicy
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# Udfps
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(COMMON_PATH):libudfps_extension.xiaomi_sm6150
+TARGET_USES_FOD_ZPOS := true
 
 # Inherit from proprietary files
 include vendor/xiaomi/davinci/BoardConfigVendor.mk
