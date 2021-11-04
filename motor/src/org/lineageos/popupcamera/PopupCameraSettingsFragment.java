@@ -63,26 +63,23 @@ public class PopupCameraSettingsFragment extends PreferenceFragment
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (MOTOR_CALIBRATION_KEY.equals(preference.getKey())) {
-            MotorCalibrationWarningDialog fragment = new MotorCalibrationWarningDialog();
-            fragment.show(getFragmentManager(), "motor_calibration_warning_dialog");
+            showCalibrationWarningDialog();
             return true;
         }
         return false;
     }
 
-    private class MotorCalibrationWarningDialog extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.popup_calibration_warning_title)
-                    .setMessage(R.string.popup_calibration_warning_text)
-                    .setPositiveButton(R.string.popup_camera_calibrate_now,
-                            (dialog, which) -> {
-                                mPopupCameraService.calibrateMotor();
-                                dialog.cancel();
-                            })
-                    .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.cancel())
-                    .create();
-        }
+    private void showCalibrationWarningDialog() {
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.popup_calibration_warning_title)
+                .setMessage(R.string.popup_calibration_warning_text)
+                .setPositiveButton(R.string.popup_camera_calibrate_now,
+                        (dialog, which) -> {
+                            mPopupCameraService.calibrateMotor();
+                            dialog.cancel();
+                        })
+                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.cancel())
+                .create();
+        alertDialog.show();
     }
 }
