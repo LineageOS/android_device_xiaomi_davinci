@@ -169,11 +169,6 @@ vendor/etc/camera/eyelineblush.cng
 -vendor/lib64/libmpbase.so
 -vendor/lib64/libtriplecam_video_optical_zoom.so
 
-# Camera Megvii
-vendor/etc/camera/megviifacepp_0_5_2_model
--vendor/lib64/libMegviiFacepp-0.5.2.so
--vendor/lib64/libmegface.so
-
 # Camera Visidon
 -vendor/lib64/camera/components/com.visidon.node.clearshot.so
 -vendor/lib64/camera/components/com.visidon.node.sr.so
