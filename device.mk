@@ -90,9 +90,6 @@ PRODUCT_PACKAGES += \
     DavinciINSettingsProviderOverlay \
     DavinciINWifiOverlay
 
-# Partitions
-PRODUCT_RETROFIT_DYNAMIC_PARTITIONS := true
-
 # Power
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
