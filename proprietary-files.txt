@@ -228,6 +228,9 @@ media/audio/ui/popup_muqin_up.ogg
 media/audio/ui/popup_yingyan_down.ogg
 media/audio/ui/popup_yingyan_up.ogg
 
+# DRM - V12.1.4.0.RFJMIXM-release-keys
+-vendor/lib64/liboemcrypto.so|6b8c5ab8cb16b7f42071ddc59ac868fa684cff4e
+
 # Fingerprint
 -vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.sm6150.so
 -vendor/lib64/libgf_hal.so
