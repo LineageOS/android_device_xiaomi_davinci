@@ -1,6 +1,7 @@
 on init && property:ro.boot.hwc=GLOBAL
     setprop ro.boot.product.hardware.sku davinci
     setprop bluetooth.device.default_name "Mi 9T"
+    setprop ro.product.mod_device davinci_global
 
 on init && property:ro.boot.hwc=CN
     setprop ro.boot.product.hardware.sku davinci
@@ -8,9 +9,13 @@ on init && property:ro.boot.hwc=CN
 
 on init && property:ro.boot.hwc=INDIA
     setprop bluetooth.device.default_name "Redmi K20"
+    setprop ro.product.mod_device davinciin_in_global
 
 on property:ro.boot.product.hardware.sku=davinci
     enable vendor.nfc_hal_service
+
+on property:ro.boot.hwversion=*
+    setprop ro.boot.hardware.revision ${ro.boot.hwversion}
 
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     override
