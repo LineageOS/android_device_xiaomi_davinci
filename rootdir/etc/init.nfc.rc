@@ -1,0 +1,13 @@
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+    override
+    class hal
+    user nfc
+    group nfc
+    writepid /dev/cpuset/system-background/tasks
+    disabled
+
+on property:ro.boot.hardware.sku=CN
+    enable vendor.nfc_hal_service
+
+on property:ro.boot.hardware.sku=GLOBAL
+    enable vendor.nfc_hal_service
