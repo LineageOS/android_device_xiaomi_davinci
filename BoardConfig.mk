@@ -21,9 +21,10 @@ BOARD_USES_ALSA_AUDIO := true
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
-ODM_MANIFEST_SKUS += davinci
-ODM_MANIFEST_DAVINCI_FILES := \
-    $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml
+$(foreach sku, CN GLOBAL, \
+    $(eval ODM_MANIFEST_SKUS += $(sku)) \
+    $(eval ODM_MANIFEST_$(sku)_FILES += \
+        $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml))
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_davinci
