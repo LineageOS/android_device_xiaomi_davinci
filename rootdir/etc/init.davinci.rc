@@ -1,7 +1,7 @@
-on init && property:ro.boot.hwc=GLOBAL
+on property:ro.boot.hwc=GLOBAL
     setprop ro.boot.product.hardware.sku davinci
 
-on init && property:ro.boot.hwc=CN
+on property:ro.boot.hwc=CN
     setprop ro.boot.product.hardware.sku davinci
 
 on property:ro.boot.product.hardware.sku=davinci
