@@ -25,10 +25,6 @@ ODM_MANIFEST_SKUS += davinci
 ODM_MANIFEST_DAVINCI_FILES := \
     $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_davinci
-TARGET_RECOVERY_DEVICE_MODULES := libinit_davinci
-
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/davinci.config
 
