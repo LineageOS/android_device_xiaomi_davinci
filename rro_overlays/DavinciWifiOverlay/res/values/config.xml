@@ -22,5 +22,5 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Do not translate. Default access point SSID used for tethering -->
-    <string name="wifi_tether_configure_ssid_default" translatable="false">Xiaomi Mi 9T</string>
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Mi 9T</string>
 </resources>
