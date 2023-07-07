@@ -1,0 +1,8 @@
+on property:ro.boot.hwc=CN
+    setprop bluetooth.device.default_name "Redmi K20"
+
+on property:ro.boot.hwc=GLOBAL
+    setprop bluetooth.device.default_name "Mi 9T"
+
+on property:ro.boot.hwc=INDIA
+    setprop bluetooth.device.default_name "Redmi K20"
