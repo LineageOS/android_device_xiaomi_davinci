@@ -3,6 +3,10 @@ on property:ro.boot.hwc=GLOBAL
 
 on property:ro.boot.hwc=CN
     setprop ro.boot.product.hardware.sku davinci
+    setprop bluetooth.device.default_name "Redmi K20"
+
+on property:ro.boot.hwc=INDIA
+    setprop bluetooth.device.default_name "Redmi K20"
 
 on property:ro.boot.product.hardware.sku=davinci
     enable vendor.nfc_hal_service
