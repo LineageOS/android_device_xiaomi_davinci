@@ -137,9 +137,6 @@ vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/beauty_ui9_intelligent_params.config
 vendor/etc/camera/body_slim_ui9_params.config
 vendor/etc/camera/eyelineblush.cng
--vendor/lib64/camera/components/com.almalence.node.sr.so
--vendor/lib64/camera/components/com.altek.node.depurple.so
--vendor/lib64/camera/components/com.altek.node.distortioncorrection.so
 -vendor/lib64/camera/components/com.arcsoft.node.bodyslim.so
 -vendor/lib64/camera/components/com.arcsoft.node.capturebokeh.so
 -vendor/lib64/camera/components/com.arcsoft.node.capturefusion.so
