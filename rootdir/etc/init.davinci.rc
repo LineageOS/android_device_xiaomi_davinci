@@ -3,6 +3,10 @@ on property:ro.boot.hwc=GLOBAL
 
 on property:ro.boot.hwc=CN
     enable vendor.nfc_hal_service
+    setprop bluetooth.device.default_name "Redmi K20"
+
+on property:ro.boot.hwc=INDIA
+    setprop bluetooth.device.default_name "Redmi K20"
 
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     override
