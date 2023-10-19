@@ -8,10 +8,9 @@ on property:ro.boot.hwc=CN
 on property:ro.boot.hwc=INDIA
     setprop bluetooth.device.default_name "Redmi K20"
 
-service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc-service.nxp
     override
-    class hal
+    class early_hal
     user nfc
-    group nfc
-    writepid /dev/cpuset/system-background/tasks
+    group nfc drmrpc system
     disabled
