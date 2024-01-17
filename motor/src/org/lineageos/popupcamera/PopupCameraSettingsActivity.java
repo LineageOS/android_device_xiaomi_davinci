@@ -27,7 +27,7 @@ public class PopupCameraSettingsActivity extends CollapsingToolbarBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getFragmentManager()
+        getSupportFragmentManager()
                 .beginTransaction()
                 .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
                         new PopupCameraSettingsFragment(), TAG_POPUPCAMERA)
