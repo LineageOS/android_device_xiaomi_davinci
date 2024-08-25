@@ -123,7 +123,7 @@ vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
 -vendor/lib64/hw/camera.qcom.so
--vendor/lib64/hw/com.qti.chi.override.so
+-vendor/lib64/hw/com.qti.chi.override.so;DISABLE_CHECKELF
 -vendor/lib64/lib_denoiser3.so
 -vendor/lib64/libcamera_nn_stub.so
 -vendor/lib64/libcamxfdalgov8.so
@@ -146,10 +146,10 @@ vendor/etc/camera/almalence_sr_params_wide.config
 -vendor/lib64/libHalSuperSensorServer.so
 -vendor/lib64/libSuperSensor.so
 -vendor/lib64/libSuperSensorCPU.so
--vendor/lib64/libalAILDC.so
+-vendor/lib64/libalAILDC.so;DISABLE_CHECKELF
 -vendor/lib64/libalCFR.so
--vendor/lib64/libalLDC.so
--vendor/lib64/libalhLDC.so
+-vendor/lib64/libalLDC.so;DISABLE_CHECKELF
+-vendor/lib64/libalhLDC.so;DISABLE_CHECKELF
 
 # Camera Altek
 vendor/etc/camera/CFR_para_T.bin
@@ -184,9 +184,9 @@ vendor/etc/camera/eyelineblush.cng
 -vendor/lib64/libarcsoft_distortion_correction.so
 -vendor/lib64/libarcsoft_dualcam_image_optical_zoom.so
 -vendor/lib64/libarcsoft_dualcam_refocus.so
--vendor/lib64/libarcsoft_dualcam_refocus_front.so
--vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so
--vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so
+-vendor/lib64/libarcsoft_dualcam_refocus_front.so;DISABLE_CHECKELF
+-vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so;DISABLE_CHECKELF
+-vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so;DISABLE_CHECKELF
 -vendor/lib64/libarcsoft_high_dynamic_range.so
 -vendor/lib64/libarcsoft_low_light_hdr.so
 -vendor/lib64/libarcsoft_portrait_lighting.so
@@ -201,7 +201,7 @@ vendor/etc/camera/eyelineblush.cng
 -vendor/lib64/camera/components/com.visidon.node.sr.so
 vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
 -vendor/lib64/libVDClearShot.so
--vendor/lib64/libVDSuperPhotoAPI.so
+-vendor/lib64/libVDSuperPhotoAPI.so;DISABLE_CHECKELF
 
 # Camera Vidhance
 -vendor/lib64/camera/components/com.vidhance.node.eis.so
