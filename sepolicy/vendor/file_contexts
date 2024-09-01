@@ -1,6 +1,0 @@
-# HALs
-/vendor/bin/hw/vendor\.xiaomi\.hardware\.motor@1\.0-service          u:object_r:hal_motor_default_exec:s0
-
-# Motor
-/dev/akm09970                                                        u:object_r:hall_device:s0
-/dev/drv8846_dev                                                     u:object_r:motor_device:s0
