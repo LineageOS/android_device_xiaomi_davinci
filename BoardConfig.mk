@@ -50,10 +50,6 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Screen density
 TARGET_SCREEN_DENSITY := 440
 
-# Sepolicy
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
 # Udfps
 TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/xiaomi:libudfps_extension.xiaomi
 TARGET_USES_FOD_ZPOS := true
