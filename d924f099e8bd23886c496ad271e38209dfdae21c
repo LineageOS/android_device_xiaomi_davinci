@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79f5141_ed65eae0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-09-26T20:50:14Z",
+      "side": 1,
+      "message": "https://github.com/xiaomi-sm6150/proprietary_vendor_xiaomi_davinci/tree/0648c105046619dd8abec1cd5d5006e6448eaffc/",
+      "revId": "d924f099e8bd23886c496ad271e38209dfdae21c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
