@@ -3,6 +3,10 @@ ro.vendor.audio.sdk.fluencetype=fluence
 vendor.audio.feature.compr_voip.enable=false
 vendor.voice.path.for.pcm.voip=false
 
+# Fingerprint
+persist.vendor.fingerprint.type=udfps_optical
+persist.vendor.fingerprint.sensor_location=540|2026|95
+
 # HVDCP
 persist.vendor.cp.taper_term_mv=6500
 persist.vendor.qg_cld_coff_gain=1.5
