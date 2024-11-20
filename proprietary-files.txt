@@ -1,7 +1,6 @@
 # These proprietary files are extracted from Xiaomi Mi 9T (codenamed `davinci`) MIUI V12.5.2.0.RFJCNXM, unless pinned
 
 # Current blobs with ELF checks disabled:
-# com.qti.chi.override depends on libgrallocutils, which is a gnu makefile target
 # libalAILDC, libalLDC, libalhLDC depend on NDK libnativewindow and build is unable to resolve its symbols
 # libVDSuperPhotoAPI, libarcsoft_dualcam_refocus_front, libarcsoft_dualcam_refocus_rear_t, libarcsoft_dualcam_refocus_rear_w depend on libsdsprpc and build is unable to resolve its symbols
 
@@ -128,7 +127,7 @@ vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so;DISABLE_CHECKELF
+vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/lib_denoiser3.so
 vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libcamxfdalgov8.so
