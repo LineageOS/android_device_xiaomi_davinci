@@ -1,9 +1,5 @@
 # These proprietary files are extracted from Xiaomi Mi 9T (codenamed `davinci`) MIUI V12.5.2.0.RFJCNXM, unless pinned
 
-# Current blobs with ELF checks disabled:
-# libalAILDC, libalLDC, libalhLDC depend on NDK libnativewindow and build is unable to resolve its symbols
-# libVDSuperPhotoAPI, libarcsoft_dualcam_refocus_front, libarcsoft_dualcam_refocus_rear_t, libarcsoft_dualcam_refocus_rear_w depend on libsdsprpc and build is unable to resolve its symbols
-
 # ADSP modules
 vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Encoder.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
@@ -150,10 +146,10 @@ vendor/lib64/camera/components/com.almalence.node.sr.so
 vendor/lib64/libHalSuperSensorServer.so
 vendor/lib64/libSuperSensor.so
 vendor/lib64/libSuperSensorCPU.so
-vendor/lib64/libalAILDC.so;DISABLE_CHECKELF
+vendor/lib64/libalAILDC.so
 vendor/lib64/libalCFR.so
-vendor/lib64/libalLDC.so;DISABLE_CHECKELF
-vendor/lib64/libalhLDC.so;DISABLE_CHECKELF
+vendor/lib64/libalLDC.so
+vendor/lib64/libalhLDC.so
 
 # Camera Altek
 vendor/etc/camera/CFR_para_T.bin
@@ -188,9 +184,9 @@ vendor/lib64/libarcsoft_bodyslim.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_dualcam_image_optical_zoom.so
 vendor/lib64/libarcsoft_dualcam_refocus.so
-vendor/lib64/libarcsoft_dualcam_refocus_front.so;DISABLE_CHECKELF
-vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so;DISABLE_CHECKELF
-vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so;DISABLE_CHECKELF
+vendor/lib64/libarcsoft_dualcam_refocus_front.so
+vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so
+vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so
 vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_low_light_hdr.so
 vendor/lib64/libarcsoft_portrait_lighting.so
@@ -205,7 +201,7 @@ vendor/lib64/camera/components/com.visidon.node.clearshot.so
 vendor/lib64/camera/components/com.visidon.node.sr.so
 vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
 vendor/lib64/libVDClearShot.so
-vendor/lib64/libVDSuperPhotoAPI.so;DISABLE_CHECKELF
+vendor/lib64/libVDSuperPhotoAPI.so
 
 # Camera Vidhance
 vendor/lib64/camera/components/com.vidhance.node.eis.so
