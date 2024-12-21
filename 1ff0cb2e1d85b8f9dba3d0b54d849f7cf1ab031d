@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70be50ea_c668e6a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-12-21T05:21:57Z",
+      "side": 1,
+      "message": "Works, but waiting on the hardware/xiaomi chain",
+      "revId": "1ff0cb2e1d85b8f9dba3d0b54d849f7cf1ab031d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
