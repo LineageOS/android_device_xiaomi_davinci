@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "015971c8_8c8c2c17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2025-03-14T16:35:14Z",
+      "side": 1,
+      "message": "Leaving votes since the common changes were merged",
+      "revId": "9abb592efe422d2874cb5cd6b61955bd6e3128e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
