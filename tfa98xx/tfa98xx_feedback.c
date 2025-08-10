@@ -45,17 +45,18 @@ typedef struct amp_device {
 static tfa_t* tfa_dev = NULL;
 
 static struct pcm_config pcm_config_tfa98xx = {
-    .channels = 2,
-    .rate = 48000,
-    .period_size = 256,
-    .period_count = 4,
-    .format = PCM_FORMAT_S16_LE,
-    .start_threshold = 0,
-    .stop_threshold = INT_MAX,
-    .avail_min = 0,
+        .channels = 2,
+        .rate = 48000,
+        .period_size = 256,
+        .period_count = 4,
+        .format = PCM_FORMAT_S16_LE,
+        .start_threshold = 0,
+        .stop_threshold = INT_MAX,
+        .avail_min = 0,
 };
 
-static int amp_set_feedback(amplifier_device_t* device, void* adev, uint32_t snd_device, bool enable) {
+static int amp_set_feedback(amplifier_device_t* device, void* adev, uint32_t snd_device,
+                            bool enable) {
     if (!device) return 0;
 
     tfa_dev->adev = (struct audio_device*)adev;
