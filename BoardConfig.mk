@@ -24,6 +24,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 $(foreach sku, CN GLOBAL, \
     $(eval ODM_MANIFEST_SKUS += $(sku)) \
     $(eval ODM_MANIFEST_$(sku)_FILES += \
+        $(ODM_MANIFEST_FILES) \
         $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml))
 
 # Kernel
