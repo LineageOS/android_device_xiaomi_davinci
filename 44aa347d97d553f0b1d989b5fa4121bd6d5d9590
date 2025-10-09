@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e2b5d5_c9ffebe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2025-10-09T01:13:06Z",
+      "side": 1,
+      "message": "Depends on https://review.lineageos.org/c/LineageOS/android_packages_resources_devicesettings/+/450281",
+      "revId": "44aa347d97d553f0b1d989b5fa4121bd6d5d9590",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
