@@ -22,11 +22,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
-import androidx.preference.PreferenceFragmentCompat;
+
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 import org.lineageos.popupcamera.R;
 
-public class PopupCameraSettingsFragment extends PreferenceFragmentCompat
+public class PopupCameraSettingsFragment extends SettingsBasePreferenceFragment
         implements OnPreferenceChangeListener, OnPreferenceClickListener {
     private Preference mCalibrationPreference;
     private static final String MOTOR_CALIBRATION_KEY = "motor_calibration";
