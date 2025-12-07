@@ -16,8 +16,9 @@
 
 package org.lineageos.popupcamera;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.Preference.OnPreferenceClickListener;
