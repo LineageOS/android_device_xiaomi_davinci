@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/popup_title">
     <SwitchPreferenceCompat
         android:defaultValue="true"
@@ -15,8 +16,8 @@
         android:entryValues="@array/popupcamera_effects_values"
         android:icon="@drawable/ic_popup_sound"
         android:key="popup_sound_effect"
-        android:summary="%s"
-        android:title="@string/popup_sound_title" />
+        android:title="@string/popup_sound_title"
+        app:useSimpleSummaryProvider="true" />
 
     <Preference
         android:key="motor_calibration"
