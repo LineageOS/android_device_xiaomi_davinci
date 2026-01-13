@@ -16,6 +16,23 @@
       "message": "Nice, thanks for the heads-up. I will check later with more time.",
       "revId": "9560d1a293edc23c338d38723ca59f3f31ce0511",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "567ada3f_7cde7866",
+        "filename": "motor/res/xml/popup_settings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-13T22:34:46Z",
+      "side": 1,
+      "message": "Requires adding this namespace:\n\nxmlns:app\u003d\"http://schemas.android.com/apk/res-auto\"",
+      "revId": "9560d1a293edc23c338d38723ca59f3f31ce0511",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
