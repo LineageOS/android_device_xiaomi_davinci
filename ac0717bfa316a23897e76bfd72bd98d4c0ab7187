@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d59a28a_4d5e494d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29669
+      },
+      "writtenOn": "2026-04-18T13:33:15Z",
+      "side": 1,
+      "message": "@arian.kulmer@web.de\nIs the speed of breathing led effect increased after recent common light hal changes ?\n\nhttps://review.lineageos.org/q/project:LineageOS/android_hardware_lineage_interfaces+branch:lineage-23.2+status:merged",
+      "revId": "ac0717bfa316a23897e76bfd72bd98d4c0ab7187",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
